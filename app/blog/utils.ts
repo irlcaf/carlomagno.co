@@ -88,8 +88,3 @@ export function formatDate(date: string, includeRelative = false) {
 
   return `${fullDate} (${formattedDate})`
 }
-
-export function handler(req, res, path) {
-  const filePath = path.resolve(path);
-  res.sendFile(filePath);
-}
