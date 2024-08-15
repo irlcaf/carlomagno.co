@@ -1,10 +1,12 @@
 import { BlogPosts } from 'app/components/posts';
 import Link from 'next/link';
+import { handler } from 'app/blog/utils';
+
 export default function Page() {
   return (
     <section>
       <h1 className="mb-8 text-2xl font-semibold tracking-tighter">
-        Carlomagno Amaya
+        <strong>Carlomagno Amaya</strong>
       </h1>
       <p className="mb-4">
         {`Hey!! I am a security researcher and software engineer with several years of experience in distributed systems, vulnerability research and intelligence. 
@@ -15,6 +17,13 @@ export default function Page() {
         {`Open-source contributor and security enthusiast, I have also worked on web3 projects and conducted smart contract audits. Check my `}
         <Link href="https://github.com/irlcaf">Github</Link>
         {`!`}
+      </p>
+      <p className="mb-4">
+        {`Download Public PGP key `}
+        <Link href="/public/public_key.asc" download>
+          <strong>[here]</strong>
+        </Link>
+        {`.`}
       </p>
       <div className="my-8">
         <BlogPosts />
