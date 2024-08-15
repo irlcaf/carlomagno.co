@@ -1,6 +1,5 @@
 import { BlogPosts } from 'app/components/posts';
 import Link from 'next/link';
-import { handler } from 'app/blog/utils';
 
 export default function Page() {
   return (
