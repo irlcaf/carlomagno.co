@@ -11,13 +11,13 @@ import { baseUrl } from './sitemap';
 export const metadata: Metadata = {
   metadataBase: new URL(baseUrl),
   title: {
-    default: 'Carlomagno Amaya | Security & Development Portfolio',
+    default: 'Carlomagno Amaya | Security Researcher & Software Engineer ',
     template: '%s | Carlomagno Amaya',
   },
-  description: 'Security & development portfolio.',
+  description: 'Security & Development Portfolio.',
   openGraph: {
     title: 'Security & Development portfolio',
-    description: 'Carlomagnos Security & Development portfolio.',
+    description: 'Carlomagno Security & Development portfolio.',
     url: baseUrl,
     siteName: 'Carlomagno Amaya',
     locale: 'en_US',
