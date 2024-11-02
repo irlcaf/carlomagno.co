@@ -8,13 +8,13 @@ export default function Page() {
         <strong>Carlomagno Amaya</strong>
       </h1>
       <p className="mb-4">
-        {`Hey!! I am a security researcher and software engineer with several years of experience in distributed systems, vulnerability research and intelligence. 
-        My background includes hands-on work in both cloud and bare-metal environments, focusing on software development, security architecture, data protection, and system reliability. 
+        {`Hey!! I am a security researcher and software engineer with 5 years of experience in distributed systems, vulnerability research and intelligence. 
+        Currently focused on vulnerability research in web3 projects at HackenProof and Inmunifi. 
           `}
       </p>
       <p className="mb-4">
-        {`Open-source contributor and security enthusiast, I have also worked on web3 projects and conducted smart contract audits. Check my `}
-        <Link href="https://github.com/irlcaf">Github</Link>
+        {`Also worked as a lead software and security engineer for `}<u><Link href="https://uledger.io">Uledger</Link></u>{` creating a propietary blockchain for their data integrity platform and at `}<u><Link href="https://sit.gob.hn/">SIT Honduras</Link></u>{` developing software that was adopted for nationwide use. Check my  `}
+        <u><Link href="https://github.com/irlcaf">Github</Link></u>
         {`!`}
       </p>
       <p className="mb-4">

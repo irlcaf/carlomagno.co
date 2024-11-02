@@ -1,0 +1,36 @@
+---
+title: 'Architecting an Email Solution with AWS Services and Blockchain'
+publishedAt: '2024-11-02'
+summary: ''
+---
+
+This project aimed to create an email management system that leverages AWS cloud services, 
+propietary blockchain technology for data integrity, and machine learning for security insights.
+
+## Overview
+
+To create a secure and efficient email processing system, we designed a solution for a client using AWS 
+and integrated it with their existing blockchain infrastructure. The primary focus was ensuring the security and confidentiality
+of data handling while enabling transparency and integrity through blockchain integration. Additionally, an ML model was incorporated 
+to assess emails for potential threats, enhancing a threat intelligence platform with valuable customer insights.
+
+### Key Components and their roles
+    - AWS SNS and SQS: The pipeline starts with AWS Simple Notification Service (SNS) to receive incoming emails and forward them to Simple Queue Service (SQS) for queue management. This ensures that all emails are handled in an orderly and scalable manner, preventing data loss.
+    - Lambda and DynamoDB: AWS Lambda functions are triggered to retrieve organizational keys stored in a DynamoDB table, which are used to decrypt incoming emails. This serverless approach ensures on-demand scalability and cost-efficiency.
+    - Email Parser and Data Sanitization: Once decrypted, a custom parser in the Lambda function processes the email contents. The parser checks and sanitizes the data, obfuscating any sensitive information while ensuring compliance with privacy regulations.
+    - Blockchain Integration: The sanitized email data is then formatted and committed as a transaction on the proprietary blockchain. This ensures that each record is tamper-proof and can be traced back for auditing purposes.
+
+### Scalability and Reliability
+To handle varying loads, Lambda's autoscaling capabilities are utilized to process incoming emails efficiently. A retry mechanism is in place to handle any failures and ensure no data is lost. The parsed data is cached in a microservice running on Kubernetes, which accelerates data retrieval and updates the blockchain explorer for transparency.
+
+### Machine Learning Integration
+A ML model created with AWS SageMaker inspects email content and classifies it as normal, spam, phishing, etc. This feature not only helps automate threat detection but also feeds valuable data into the custom-built threat intelligence platform. This platform provides actionable insights, helping organizations protect themselves from emerging threats.
+
+### Insights and Benefits
+This system offers organizations a robust and transparent way to manage email data while benefiting from blockchain's immutable nature. The ML integration adds another layer of security, enabling proactive threat management. Additionally, the architecture’s modularity means that organizations can scale and adapt it to their specific needs without significant overhauls.
+
+### Challenges and Solutions
+During development, one of the significant challenges was ensuring seamless integration between the blockchain and AWS services. By adopting an event-driven architecture and leveraging AWS's extensive documentation and community resources, I was able to resolve these integration issues. Another challenge was optimizing the ML model for accurate threat detection, which required iterative training and data validation.
+
+### Conclusion and Next Steps
+This project demonstrated how combining AWS services, blockchain technology, and machine learning can create a secure, scalable email processing solution. Future enhancements could include expanding the ML model’s training set for even more accurate classification and adding more advanced analytics to the threat intelligence platform.
