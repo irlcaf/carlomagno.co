@@ -7,6 +7,9 @@ const navItems = {
   '/blog': {
     name: 'blog',
   },
+  'https://www.linkedin.com/services/page/b140313312ba1a5315/': {
+    name: 'testimonials',
+  },
 };
 
 export function Navbar() {
