@@ -9,12 +9,22 @@ export default function Page() {
       </h1>
       <p className="mb-4">
         {`Hey!! I am a security researcher and software engineer with 5 years of experience in distributed systems, vulnerability research and intelligence. 
-        Currently focused on vulnerability research in web3 projects at HackenProof and Inmunifi. 
+        I do vuln research for my day job and at night focused on building a software development company. 
           `}
       </p>
       <p className="mb-4">
-        {`Also worked as a lead software and security engineer for `}<u><Link href="https://uledger.io">Uledger</Link></u>{` creating a propietary blockchain for their data integrity platform and at `}<u><Link href="https://sit.gob.hn/">SIT Honduras</Link></u>{` developing software that was adopted for nationwide use. Check my  `}
-        <u><Link href="https://github.com/irlcaf">Github</Link></u>
+        {`Also worked as a lead software and security engineer for `}
+        <u>
+          <Link href="https://uledger.io">Uledger</Link>
+        </u>
+        {` creating a propietary blockchain for their data integrity platform and also worked for government agencies in Honduras `}
+        <u>
+          <Link href="https://sit.gob.hn/">SIT</Link>
+        </u>
+        {`and in El Salvador developing software that was adopted for nationwide use. Check my  `}
+        <u>
+          <Link href="https://github.com/irlcaf">Github</Link>
+        </u>
         {`!`}
       </p>
       <p className="mb-4">
