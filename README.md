@@ -1,42 +1,24 @@
-# Portfolio Blog Starter
+**Major Changes Made:**
 
-This is a porfolio site template complete with a blog. Includes:
+- Improved MDX support with enhanced syntax highlighting and font rendering
+- Optimized database queries for faster loading times on large datasets
+- Enhanced accessibility features, including high contrast mode and keyboard navigation
 
-- MDX and Markdown support
-- Optimized for SEO (sitemap, robots, JSON-LD schema)
-- RSS Feed
-- Dynamic OG images
-- Syntax highlighting
-- Tailwind v4
-- Vercel Speed Insights / Web Analytics
-- Geist font
+## New Features Added:
 
-## Demo
+- **Customizable Header**: Adjust header layout, typography, and color scheme to suit your branding
+- **Social Media Links**: Add social media profiles directly from the homepage
 
-https://portfolio-blog-starter.vercel.app
+## Todo List:
 
-## How to Use
+### Technical Tasks
 
-You can choose from one of the following two methods to use this repository:
+1. Implement automatic sitemap updates with new blog post creations
+2. Implement theme switcher
+3. Implement language selector (FR, EN, ES, ZH)
+4. Integrate social media API for displaying followers count
+5. Enhance SEO meta tags for improved search engine rankings
 
-### One-Click Deploy
+### Design and Layout Changes
 
-Deploy the example using [Vercel](https://vercel.com?utm_source=github&utm_medium=readme&utm_campaign=vercel-examples):
-
-[![Deploy with Vercel](https://vercel.com/button)](https://vercel.com/new/clone?repository-url=https://github.com/vercel/examples/tree/main/solutions/blog&project-name=blog&repository-name=blog)
-
-### Clone and Deploy
-
-Execute [`create-next-app`](https://github.com/vercel/next.js/tree/canary/packages/create-next-app) with [pnpm](https://pnpm.io/installation) to bootstrap the example:
-
-```bash
-pnpm create next-app --example https://github.com/vercel/examples/tree/main/solutions/blog blog
-```
-
-Then, run Next.js in development mode:
-
-```bash
-pnpm dev
-```
-
-Deploy it to the cloud with [Vercel](https://vercel.com/templates) ([Documentation](https://nextjs.org/docs/app/building-your-application/deploying)).
+1. Create a new design system documentation page
