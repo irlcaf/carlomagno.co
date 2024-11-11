@@ -9,7 +9,7 @@ export default function Page() {
       </h1>
       <p className="mb-4">
         {`Hey!! I am a security researcher and software engineer with 5 years of experience in distributed systems, vulnerability research and intelligence. 
-        I do vuln research for my day job and at night focused on building a software development company. 
+        Vulnerability research, software development, AI integrations, blockchain. 
           `}
       </p>
       <p className="mb-4">
@@ -21,7 +21,7 @@ export default function Page() {
         <u>
           <Link href="https://sit.gob.hn/">SIT</Link>
         </u>
-        {`and in El Salvador developing software that was adopted for nationwide use. Check my  `}
+        {` and in El Salvador developing software adopted for nationwide use. Check my  `}
         <u>
           <Link href="https://github.com/irlcaf">Github</Link>
         </u>
