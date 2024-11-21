@@ -9,7 +9,6 @@ import Footer from './components/footer';
 import { baseUrl } from './sitemap';
 
 export const metadata: Metadata = {
-  metadataBase: new URL(baseUrl),
   title: {
     default: 'Carlomagno Amaya | Security Researcher & Software Engineer ',
     template: '%s | Carlomagno Amaya',
@@ -20,7 +19,6 @@ export const metadata: Metadata = {
     description: 'Carlomagno Security & Development portfolio.',
     url: baseUrl,
     siteName: 'Carlomagno Amaya',
-    locale: 'en_US',
     type: 'website',
   },
   robots: {
@@ -45,7 +43,6 @@ export default function RootLayout({
 }) {
   return (
     <html
-      lang="en"
       className={cx(
         'text-black bg-white dark:text-white dark:bg-black',
         GeistSans.variable,
