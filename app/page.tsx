@@ -27,13 +27,6 @@ export default function Page() {
         </u>
         {`!`}
       </p>
-      <p className="mb-4">
-        {`Download Public PGP key `}
-        <Link href="/public/public_key.asc" download>
-          <strong>[here]</strong>
-        </Link>
-        {`.`}
-      </p>
       <div className="my-8">
         <BlogPosts />
       </div>
