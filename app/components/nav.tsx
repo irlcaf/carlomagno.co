@@ -6,7 +6,6 @@ export function Navbar() {
   const { lang } = useTranslation('common');
   let filename = `locales/${lang}/common.json`;
   const navItems = getNavBarItems(filename);
-  console.log(navItems);
   return (
     <aside className="-ml-[8px] mb-16 tracking-tight">
       <div className="lg:sticky lg:top-20">
