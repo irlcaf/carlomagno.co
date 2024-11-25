@@ -1,0 +1,87 @@
+{
+    "title": "Servicios Ofrecidos",
+    "description": "Descubre nuestras soluciones innovadoras y servicios profesionales, que van desde inteligencia artificial y ciberseguridad hasta desarrollo web y móvil, transformación digital y más. Ayudamos a mejorar la eficiencia, seguridad y crecimiento de tu empresa.",
+    "services": [
+        {
+            "title": "Soluciones de IA",
+            "publishedAt": "2024-11-02",
+            "icon": "🤖",
+            "summary": "Potencia tu negocio con inteligencia artificial para agilizar operaciones, automatizar procesos y tomar decisiones informadas basadas en datos.",
+            "details": {
+                "description": "Mejora tu negocio con IA para obtener valiosos conocimientos sobre tus clientes actuales, mejorando las interacciones a través de chatbots inteligentes y análisis de sentimientos. Agiliza las operaciones internas identificando y automatizando tareas repetitivas, reduciendo el trabajo manual y los errores, y liberando el tiempo de tus empleados para centrarse en iniciativas de alto valor."
+            }
+        },
+        {
+            "title": "Soluciones Blockchain",
+            "publishedAt": "2024-11-02",
+            "icon": "⛓️",
+            "summary": "Aprovecha la tecnología blockchain para mejorar la transparencia, la seguridad y la eficiencia en tus transacciones digitales y la gestión de datos.",
+            "details": {
+                "description": "Transforma tus activos del mundo real en tokens digitales que se pueden almacenar, rastrear e intercambiar de forma segura en un blockchain. Nuestras soluciones integrales de blockchain, incluida la implementación de contratos inteligentes, mejoran la confianza, la transparencia y la seguridad en cadenas de suministro, gestión de identidades y más."
+            }
+        },
+        {
+            "title": "Inteligencia de Negocios y Ciencia de Datos",
+            "publishedAt": "2024-11-02",
+            "icon": "📈",
+            "summary": "Desbloquea el poder de los datos con inteligencia de negocios y ciencia de datos, impulsando una toma de decisiones más inteligente y una mayor eficiencia operativa.",
+            "details": {
+                "description": "Aprovecha la inteligencia de negocios y la ciencia de datos para transformar datos sin procesar en información útil, permitiendo una toma de decisiones informada, una mayor eficiencia y una previsión estratégica en toda tu organización."
+            }
+        },
+        {
+            "title": "Computación en la Nube",
+            "publishedAt": "2024-11-02",
+            "icon": "☁️",
+            "summary": "Escala tu infraestructura con servicios en la nube flexibles, seguros y rentables, diseñados para satisfacer las necesidades cambiantes de tu negocio.",
+            "details": {
+                "description": "Aprovecha el poder de los servicios en la nube para gestionar infraestructuras de forma flexible, escalable y segura, con experiencia trabajando con los cuatro proveedores principales de la nube y sus diversos servicios, respaldados por consultoría experta para mejorar la agilidad y eficiencia empresarial."
+            }
+        },
+        {
+            "title": "Ciberseguridad",
+            "publishedAt": "2024-11-02",
+            "icon": "🛡️",
+            "summary": "Protege tus activos digitales e infraestructura con soluciones de ciberseguridad robustas, asegurando protección ofensiva y defensiva contra amenazas en constante evolución.",
+            "details": {
+                "description": "Protege tus activos digitales y asegura las operaciones con soluciones de ciberseguridad integrales, incluyendo prácticas seguras en el ciclo de vida del desarrollo, pruebas de penetración y auditorías de seguridad exhaustivas para proteger tu negocio a todos los niveles."
+            }
+        },
+        {
+            "title": "Análisis de Datos",
+            "publishedAt": "2024-11-02",
+            "icon": "📊",
+            "summary": "Transforma los datos de tu negocio en información útil, impulsando el crecimiento y la optimización a través de análisis estratégico y medición del rendimiento.",
+            "details": {
+                "description": "Aprovecha el análisis de datos para impulsar el crecimiento y la eficiencia empresarial mediante un proceso integral de recopilación y análisis de datos, transformándolos en información significativa y aplicando análisis avanzados para tomar decisiones estratégicas."
+            }
+        },
+        {
+            "title": "Transformación Digital",
+            "publishedAt": "2024-11-02",
+            "icon": "🌐",
+            "summary": "Navega el cambio de sistemas heredados a soluciones digitales modernas, con estrategias personalizadas e implementación que se alinean con los objetivos de tu negocio.",
+            "details": {
+                "description": "Guía a tu organización a través de la transformación digital migrando de sistemas heredados a soluciones digitales modernas, con estrategias y soluciones adaptadas para cumplir con tus necesidades y requisitos empresariales, mejorando la eficiencia y la innovación."
+            }
+        },
+        {
+            "title": "Desarrollo de Móvil y Web",
+            "publishedAt": "2024-11-02",
+            "icon": "📱💻",
+            "summary": "Desarrolla aplicaciones móviles y web intuitivas, escalables y de alto rendimiento, adaptadas a las necesidades de diferentes plataformas y expectativas de los usuarios.",
+            "details": {
+                "description": "Desarrolla aplicaciones móviles y web robustas y fáciles de usar adaptadas a diversas plataformas y necesidades comerciales, asegurando experiencias de usuario sin interrupciones y un alto rendimiento en todos los dispositivos."
+            }
+        },
+        {
+            "title": "Diseño de Producto",
+            "publishedAt": "2024-11-02",
+            "icon": "🎨",
+            "summary": "Eleva las experiencias de los usuarios con servicios de diseño completos, incluidos auditorías UX, diseño UI/UX y diseño de interacción para crear soluciones sin fisuras centradas en el usuario.",
+            "details": {
+                "description": "Diseña productos que cautiven a los usuarios con un diseño intuitivo, atractivo y centrado en el usuario. Nuestros servicios incluyen auditorías UX, diseño UI/UX y diseño de interacción para crear experiencias fluidas que satisfacen las necesidades de tus clientes y impulsan el éxito empresarial."
+            }
+        }
+    ]
+}
