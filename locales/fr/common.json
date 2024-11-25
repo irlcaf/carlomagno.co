@@ -1,4 +1,18 @@
 {
     "title": "Chercheur en sécurité et développeur web",
-    "description": "Axé sur la recherche en sécurité et les technologies modernes de développement web, dédié à améliorer la sécurité et l'expérience utilisateur dans le monde numérique."
+    "description": "Axé sur la recherche en sécurité et les technologies modernes de développement web, dédié à améliorer la sécurité et l'expérience utilisateur dans le monde numérique.",
+    "navbar": {
+        "/": {
+            "name": "accueil"
+        },
+        "/services": {
+            "name": "services"
+        },
+        "/blog": {
+            "name": "blog"
+        },
+        "https://www.linkedin.com/services/page/b140313312ba1a5315/": {
+            "name": "témoignages"
+        }
+    }
 }

@@ -1,21 +1,12 @@
 import Link from 'next/link';
-
-const navItems = {
-  '/': {
-    name: 'home',
-  },
-  '/services': {
-    name: 'services',
-  },
-  '/blog': {
-    name: 'blog',
-  },
-  'https://www.linkedin.com/services/page/b140313312ba1a5315/': {
-    name: 'testimonials',
-  },
-};
+import useTranslation from 'next-translate/useTranslation';
+import { getNavBarItems } from './utils';
 
 export function Navbar() {
+  const { lang } = useTranslation('common');
+  let filename = `locales/${lang}/common.json`;
+  const navItems = getNavBarItems(filename);
+  console.log(navItems);
   return (
     <aside className="-ml-[8px] mb-16 tracking-tight">
       <div className="lg:sticky lg:top-20">

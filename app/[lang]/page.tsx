@@ -24,7 +24,7 @@ export default async function Page() {
       </div>
 
       <div>
-        <Link href={`/${lang}/second-page`}>➡️</Link>
+        <Link href={`/${lang}/`}>➡️</Link>
       </div>
     </>
   );

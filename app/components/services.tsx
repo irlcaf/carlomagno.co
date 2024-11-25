@@ -1,8 +1,7 @@
-import { getServices, getServicesFromJson } from 'app/services/utils';
+import { getServicesFromJson } from 'app/services/utils';
 import useTranslation from 'next-translate/useTranslation';
 
 export function Services() {
-  let allBlogs = getServices();
   const { t, lang } = useTranslation('offers');
   let filename = `locales/${lang}/offers.json`;
   let services = getServicesFromJson(filename);

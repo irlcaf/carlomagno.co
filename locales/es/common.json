@@ -1,4 +1,18 @@
 {
     "title": "Chercheur en sécurité et ingénieur logiciel",
-    "description": "Axé sur la recherche en sécurité et les technologies modernes de développement logiciel, dédié à améliorer la sécurité et l'expérience utilisateur dans le monde numérique."
+    "description": "Axé sur la recherche en sécurité et les technologies modernes de développement logiciel, dédié à améliorer la sécurité et l'expérience utilisateur dans le monde numérique.",
+    "navbar": {
+        "/": {
+            "name": "inicio"
+        },
+        "/services": {
+            "name": "servicios"
+        },
+        "/blog": {
+            "name": "blog"
+        },
+        "https://www.linkedin.com/services/page/b140313312ba1a5315/": {
+            "name": "testimonios"
+        }
+    }
 }
