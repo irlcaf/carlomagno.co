@@ -53,3 +53,10 @@ function getMDXData(dir) {
 export function getServices() {
   return getMDXData(path.join(process.cwd(), 'app', 'services', 'offers'));
 }
+
+export function getServicesFromJson(filePath) {
+  const jsonData = fs.readFileSync(filePath, 'utf8');
+  const data = JSON.parse(jsonData);
+
+  return data.services;
+}
