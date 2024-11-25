@@ -1,0 +1,83 @@
+{
+    "ai": {
+        "title": "Solutions IA",
+        "publishedAt": "2024-11-02",
+        "icon": "🤖",
+        "summary": "Renforcez votre entreprise avec l'intelligence artificielle pour rationaliser les opérations, automatiser les processus et prendre des décisions éclairées basées sur les données.",
+        "details": {
+            "description": "Améliorez votre entreprise avec l'IA pour obtenir des informations précieuses sur vos clients actuels, améliorer les interactions grâce à des chatbots intelligents et à l'analyse de sentiment. Rationalisez les opérations internes en identifiant et en automatisant les tâches répétitives, réduisant ainsi le travail manuel et les erreurs, et libérez du temps pour que vos employés se concentrent sur des initiatives à forte valeur ajoutée."
+        }
+    },
+    "blockchain": {
+        "title": "Solutions Blockchain",
+        "publishedAt": "2024-11-02",
+        "icon": "⛓️",
+        "summary": "Exploitez la technologie blockchain pour améliorer la transparence, la sécurité et l'efficacité de vos transactions numériques et de la gestion des données.",
+        "details": {
+            "description": "Transformez vos actifs réels en tokens numériques pouvant être stockés, suivis et échangés en toute sécurité sur une blockchain. Nos solutions blockchain complètes, y compris la mise en œuvre de contrats intelligents, renforcent la confiance, la transparence et la sécurité dans les chaînes d'approvisionnement, la gestion des identités et plus encore."
+        }
+    },
+    "business-intelligence": {
+        "title": "Intelligence d'Affaires & Science des Données",
+        "publishedAt": "2024-11-02",
+        "icon": "📈",
+        "summary": "Libérez la puissance des données avec l'intelligence d'affaires et la science des données, en favorisant une prise de décision plus intelligente et une meilleure efficacité opérationnelle.",
+        "details": {
+            "description": "Exploitez l'intelligence d'affaires et la science des données pour transformer les données brutes en informations exploitables, permettant une prise de décision éclairée, une meilleure efficacité et une prévision stratégique dans toute votre organisation."
+        }
+    },
+    "cloud": {
+        "title": "Informatique en Nuage",
+        "publishedAt": "2024-11-02",
+        "icon": "☁️",
+        "summary": "Scalpez votre infrastructure avec des services cloud flexibles, sécurisés et rentables, conçus pour répondre aux besoins évolutifs de votre entreprise.",
+        "details": {
+            "description": "Exploitez la puissance des services cloud pour une gestion d'infrastructure flexible, évolutive et sécurisée, avec une expertise dans le travail avec les quatre principaux fournisseurs de cloud et leurs services variés, soutenus par une consultation experte pour améliorer l'agilité et l'efficacité des entreprises."
+        }
+    },
+    "cybersecurity": {
+        "title": "Cybersécurité",
+        "publishedAt": "2024-11-02",
+        "icon": "🛡️",
+        "summary": "Protégez vos actifs numériques et votre infrastructure avec des solutions de cybersécurité robustes, garantissant une protection offensive et défensive contre les menaces en constante évolution.",
+        "details": {
+            "description": "Protégez vos actifs numériques et sécurisez vos opérations avec des solutions de cybersécurité complètes, y compris des pratiques de cycle de vie de développement sécurisé, des tests de pénétration et des audits de sécurité approfondis pour protéger votre entreprise à tous les niveaux."
+        }
+    },
+    "data-analytics": {
+        "title": "Analyse de Données",
+        "publishedAt": "2024-11-02",
+        "icon": "📊",
+        "summary": "Transformez les données commerciales en informations exploitables, stimulant la croissance et l'optimisation grâce à des analyses stratégiques et une mesure de performance.",
+        "details": {
+            "description": "Exploitez l'analyse de données pour stimuler la croissance et l'efficacité des entreprises grâce à un processus complet de collecte et d'analyse des données, les transformant en informations utiles et appliquant des analyses avancées pour éclairer la prise de décisions stratégiques."
+        }
+    },
+    "digital-transformation": {
+        "title": "Transformation Digitale",
+        "publishedAt": "2024-11-02",
+        "icon": "🌐",
+        "summary": "Naviguez le passage des systèmes hérités aux solutions digitales modernes, avec des stratégies sur mesure et une mise en œuvre alignée sur les objectifs de votre entreprise.",
+        "details": {
+            "description": "Menez votre organisation à travers la transformation digitale en migrant des systèmes hérités vers des solutions digitales modernes, avec des stratégies et des solutions personnalisées pour répondre à vos besoins spécifiques et exigences commerciales, améliorant ainsi l'efficacité et l'innovation."
+        }
+    },
+    "sofware-development": {
+        "title": "Développement Mobile et Web",
+        "publishedAt": "2024-11-02",
+        "icon": "📱💻",
+        "summary": "Construisez des applications mobiles et web intuitives, évolutives et performantes, adaptées aux besoins de diverses plateformes et aux attentes des utilisateurs.",
+        "details": {
+            "description": "Développez des applications mobiles et web robustes et conviviales, adaptées à diverses plateformes et besoins commerciaux, assurant une expérience utilisateur fluide et des performances élevées sur tous les appareils."
+        }
+    },
+    "product-design": {
+        "title": "Conception de Produit",
+        "publishedAt": "2024-11-02",
+        "icon": "🎨",
+        "summary": "Élevez l'expérience utilisateur avec des services de conception complets, y compris des audits UX, la conception UI/UX et la conception d'interactions pour créer des solutions sans couture centrées sur l'utilisateur.",
+        "details": {
+            "description": "Concevez des produits qui captivent les utilisateurs grâce à un design intuitif, engageant et centré sur l'utilisateur. Nos services incluent des audits UX, la conception UI/UX et la conception d'interactions pour créer des expériences sans faille qui répondent aux besoins de vos clients et stimulent la réussite commerciale."
+        }
+    }
+}
