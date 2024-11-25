@@ -7,16 +7,21 @@ import { Analytics } from '@vercel/analytics/react';
 import { SpeedInsights } from '@vercel/speed-insights/next';
 import Footer from './components/footer';
 import { baseUrl } from './sitemap';
+import useTranslation from 'next-translate/useTranslation';
+import i18n from '../i18n';
+import { redirect } from 'next/navigation';
+
+const { t, lang } = useTranslation('common');
 
 export const metadata: Metadata = {
   title: {
-    default: 'Carlomagno Amaya | Security Researcher & Software Engineer ',
+    default: 'Carlomagno Amaya | ' + t('title'),
     template: '%s | Carlomagno Amaya',
   },
-  description: 'Security & Development Portfolio.',
+  description: t('description'),
   openGraph: {
-    title: 'Security & Development portfolio',
-    description: 'Carlomagno Security & Development portfolio.',
+    title: t('title'),
+    description: 'Carlomagno ' + t('title'),
     url: baseUrl,
     siteName: 'Carlomagno Amaya',
     type: 'website',
@@ -41,6 +46,8 @@ export default function RootLayout({
 }: {
   children: React.ReactNode;
 }) {
+  if (!i18n.locales.includes(lang)) redirect(`/${i18n.defaultLocale}/${lang}`);
+
   return (
     <html
       className={cx(
@@ -48,6 +55,7 @@ export default function RootLayout({
         GeistSans.variable,
         GeistMono.variable
       )}
+      lang={lang}
     >
       <body className="antialiased max-w-xl mx-4 mt-8 lg:mx-auto">
         <main className="flex-auto min-w-0 mt-6 flex flex-col px-2 md:px-0">
