@@ -1,7 +1,17 @@
 module.exports = {
-  locales: ['en', 'fr'], // Array with the languages that you want to use
-  defaultLocale: 'en', // Default language of your website
-  pages: {
-    '*': ['common'], // Namespaces that you want to import per page (we stick to one namespace for all the application in this tutorial)
-  },
-};
+    locales: ['__default', 'en', 'es', 'fr', 'zh'],
+    defaultLocale: 'en',
+    localesToIgnore: ['__default'],
+    pages: {
+      '*': ['common', 'home'],
+      '/[lang]': ['common', 'home'],
+      '/': ['common','home'],
+    },
+    interpolation: {
+      prefix: '${',
+      suffix: '}',
+    },
+    localeDetection: false,
+    loadLocaleFrom: async (locale, namespace) =>
+      import(`./locales/${locale}/${namespace}.json`).then((r) => r.default),
+  }
