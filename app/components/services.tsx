@@ -1,22 +1,41 @@
 import Link from 'next/link';
-import { getServices } from 'app/services/utils';
+import { getServices } from 'app/[locale]/services/utils';
+import { buildLocalizedUrl, type Locale } from 'app/lib/url-translations';
 
-export function Services() {
-  let allBlogs = getServices();
+export function Services({ locale = 'en' }: { locale?: string }) {
+  let allServices = getServices();
+  
+  // Define core services order
+  const coreServicesOrder = [
+    'cybersecurity',
+    'data-analytics', 
+    'algorithms-software',
+    'ai'
+  ];
+  
+  // Sort services with core services first
+  const sortedServices = allServices.sort((a, b) => {
+    const aIndex = coreServicesOrder.indexOf(a.slug);
+    const bIndex = coreServicesOrder.indexOf(b.slug);
+    
+    if (aIndex !== -1 && bIndex !== -1) {
+      return aIndex - bIndex;
+    }
+    if (aIndex !== -1) return -1;
+    if (bIndex !== -1) return 1;
+    
+    // Sort remaining by date
+    return new Date(b.metadata.publishedAt).getTime() - new Date(a.metadata.publishedAt).getTime();
+  });
+  
   return (
     <div>
-      {allBlogs
-        .sort((a, b) => {
-          if (false) {
-            return -1;
-          }
-          return 1;
-        })
+      {sortedServices
         .map((post) => (
           <Link
             key={post.slug}
             className="flex flex-col space-y-1 mb-4"
-            href={`/services/${post.slug}`}
+            href={`${buildLocalizedUrl(locale as Locale, 'services')}/${post.slug}`}
           >
             <div className="w-full flex flex-col md:flex-row items-start p-1 bg-white dark:bg-neutral-800 rounded-t-lg shadow-lg border border-neutral-200 dark:border-neutral-700">
               <span className="text-neutral-600 dark:text-neutral-400 w-[40px] tabular-nums">

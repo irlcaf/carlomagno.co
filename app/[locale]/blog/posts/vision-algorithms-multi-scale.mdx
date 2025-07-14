@@ -1,0 +1,54 @@
+---
+title: 'Vision Algorithms'
+publishedAt: '2024-10-20'
+summary: 'Developed custom vision algorithms that significantly outperformed standard approaches for industrial applications.'
+---
+
+"Your algorithm needs to find tiny defects on surfaces moving at high speed. In poor lighting. And it needs to be real-time."
+
+I laughed. The client didn't. That's when I realized they were serious.
+
+## Why Standard Approaches Failed
+
+We tried everything off-the-shelf. YOLO, Mask R-CNN, even that fancy new transformer everyone was hyping. They all struggled with our specific requirements.
+
+The problem? These models are built for general photography, not industrial chaos. They assume decent lighting, clear objects, and reasonable processing time. We had none of that.
+
+After burning through significant compute resources trying to force-fit these models, we decided to build our own.
+
+## The Hack That Changed Everything
+
+Late one night, while stress-eating takeout, I had an idea: what if we processed multiple scales in parallel instead of sequentially? 
+
+Traditional approaches resize the image multiple times. We decided to grab features at every scale simultaneously and let the algorithm figure out which ones matter. Sounds obvious now. Took us weeks to realize it.
+
+The real innovation came from dynamic kernels. Instead of fixed convolution filters, we generate them on the fly based on what we're seeing. It's like giving the algorithm glasses that adjust automatically.
+
+## Performance Improvements
+
+The custom approach delivered substantial improvements:
+- Much faster feature extraction
+- Significantly reduced full pipeline processing time
+- Smaller model size without sacrificing accuracy
+- Better performance on our specific use cases
+
+The client's favorite part? We caught defects their expensive inspection system had been missing.
+
+## Deployment Reality Check
+
+Here's what the papers don't tell you: making it work in the lab is just the beginning. Making it survive production is the real challenge.
+
+We optimized for multiple platforms:
+- Edge devices (for on-site processing)
+- Compute sticks (for portable deployments)
+- Mobile devices (for field inspections)
+
+Each needed completely different optimizations. The mobile version runs different algorithms than the server version. Nobody cares about the technical details as long as it works.
+
+## What Keeps Me Up at Night
+
+We built something that works really well. Now everyone wants to use it for everything. Aerial surveillance? Medical imaging? Loss prevention?
+
+Just because you can apply computer vision to something doesn't mean you should. But try explaining that to executives who just saw their inspection costs plummet.
+
+The algorithms are open-sourced now. If the technology is out there anyway, might as well let everyone benefit. At least the factory workers got better working conditions out of it.

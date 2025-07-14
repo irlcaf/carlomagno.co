@@ -1,7 +1,8 @@
 import Link from 'next/link';
-import { formatDate, getBlogPosts } from 'app/blog/utils';
+import { formatDate, getBlogPosts } from 'app/[locale]/blog/utils';
+import { buildLocalizedUrl, type Locale } from 'app/lib/url-translations';
 
-export function BlogPosts() {
+export function BlogPosts({ locale = 'en' }: { locale?: string }) {
   let allBlogs = getBlogPosts();
 
   return (
@@ -19,7 +20,7 @@ export function BlogPosts() {
           <Link
             key={post.slug}
             className="flex flex-col space-y-1 mb-4"
-            href={`/blog/${post.slug}`}
+            href={`${buildLocalizedUrl(locale as Locale, 'blog')}/${post.slug}`}
           >
             <div className="w-full flex flex-col md:flex-row space-x-0 md:space-x-2">
               <p className="text-neutral-600 dark:text-neutral-400 w-[100px] tabular-nums">

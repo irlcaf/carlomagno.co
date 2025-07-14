@@ -1,11 +1,10 @@
 import { notFound } from 'next/navigation';
 import { CustomMDX } from 'app/components/mdx';
-import { getServices } from 'app/services/utils';
+import { formatDate, getBlogPosts } from '../utils';
 import { baseUrl } from 'app/sitemap';
-import { formatDate } from 'app/blog/utils';
 
 export async function generateStaticParams() {
-  let posts = getServices();
+  let posts = getBlogPosts();
 
   return posts.map((post) => ({
     slug: post.slug,
@@ -13,15 +12,14 @@ export async function generateStaticParams() {
 }
 
 export function generateMetadata({ params }) {
-  let post = getServices().find((post) => post.slug === params.slug);
+  let post = getBlogPosts().find((post) => post.slug === params.slug);
   if (!post) {
     return;
   }
 
   let {
     title,
-    icon: icon,
-    publishedAt,
+    publishedAt: publishedTime,
     summary: description,
     image,
   } = post.metadata;
@@ -36,8 +34,8 @@ export function generateMetadata({ params }) {
       title,
       description,
       type: 'article',
-      icon,
-      url: `${baseUrl}/services/${post.slug}`,
+      publishedTime,
+      url: `${baseUrl}/blog/${post.slug}`,
       images: [
         {
           url: ogImage,
@@ -53,8 +51,8 @@ export function generateMetadata({ params }) {
   };
 }
 
-export default function Service({ params }) {
-  let post = getServices().find((post) => post.slug === params.slug);
+export default function Blog({ params }) {
+  let post = getBlogPosts().find((post) => post.slug === params.slug);
 
   if (!post) {
     notFound();
@@ -76,10 +74,10 @@ export default function Service({ params }) {
             image: post.metadata.image
               ? `${baseUrl}${post.metadata.image}`
               : `/og?title=${encodeURIComponent(post.metadata.title)}`,
-            url: `${baseUrl}/services/${post.slug}`,
+            url: `${baseUrl}/blog/${post.slug}`,
             author: {
-              '@type': 'Carlomagno',
-              name: 'Services',
+              '@type': 'Person',
+              name: 'My Portfolio',
             },
           }),
         }}

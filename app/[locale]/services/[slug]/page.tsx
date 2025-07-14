@@ -1,10 +1,11 @@
 import { notFound } from 'next/navigation';
 import { CustomMDX } from 'app/components/mdx';
-import { formatDate, getBlogPosts } from 'app/blog/utils';
+import { getServices } from '../utils';
 import { baseUrl } from 'app/sitemap';
+import { formatDate } from '../../blog/utils';
 
 export async function generateStaticParams() {
-  let posts = getBlogPosts();
+  let posts = getServices();
 
   return posts.map((post) => ({
     slug: post.slug,
@@ -12,14 +13,15 @@ export async function generateStaticParams() {
 }
 
 export function generateMetadata({ params }) {
-  let post = getBlogPosts().find((post) => post.slug === params.slug);
+  let post = getServices().find((post) => post.slug === params.slug);
   if (!post) {
     return;
   }
 
   let {
     title,
-    publishedAt: publishedTime,
+    icon: icon,
+    publishedAt,
     summary: description,
     image,
   } = post.metadata;
@@ -34,8 +36,8 @@ export function generateMetadata({ params }) {
       title,
       description,
       type: 'article',
-      publishedTime,
-      url: `${baseUrl}/blog/${post.slug}`,
+      icon,
+      url: `${baseUrl}/services/${post.slug}`,
       images: [
         {
           url: ogImage,
@@ -51,8 +53,8 @@ export function generateMetadata({ params }) {
   };
 }
 
-export default function Blog({ params }) {
-  let post = getBlogPosts().find((post) => post.slug === params.slug);
+export default function Service({ params }) {
+  let post = getServices().find((post) => post.slug === params.slug);
 
   if (!post) {
     notFound();
@@ -74,10 +76,10 @@ export default function Blog({ params }) {
             image: post.metadata.image
               ? `${baseUrl}${post.metadata.image}`
               : `/og?title=${encodeURIComponent(post.metadata.title)}`,
-            url: `${baseUrl}/blog/${post.slug}`,
+            url: `${baseUrl}/services/${post.slug}`,
             author: {
-              '@type': 'Person',
-              name: 'My Portfolio',
+              '@type': 'Carlomagno',
+              name: 'Services',
             },
           }),
         }}

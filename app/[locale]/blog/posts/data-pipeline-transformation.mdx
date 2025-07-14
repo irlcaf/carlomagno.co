@@ -1,0 +1,43 @@
+---
+title: 'Data Pipeline Overhaul'
+publishedAt: '2024-11-28'
+summary: 'Unified dozens of data sources across multiple countries into a single pipeline, dramatically reducing data delays and manual work.'
+---
+
+"We don't actually know how much money we made last quarter."
+
+That's how the CFO started our first meeting. A large company with operations across multiple countries, and they couldn't trust their own numbers. Dozens of different systems, massive data duplication, and analysts spending entire days just trying to reconcile information.
+
+## The Mess We Inherited
+
+Picture this: each office used different systems. Some ran on ancient SAP versions. Others had multiple CRMs from various acquisitions. Nothing talked to anything else.
+
+The data team's "solution"? A folder full of Python scripts that someone had to run manually every single day. The person who wrote them had left. No documentation.
+
+I'll never forget finding a script called `final_final_v2_ACTUALLY_USE_THIS_ONE.py`. That's when I knew we were in trouble.
+
+## The Fix Nobody Expected
+
+Everyone wanted to "move to the cloud" or "implement AI." But the real problem was simpler: we had no idea what data we actually had.
+
+So we did something radical. We spent weeks just cataloging everything. Every database, every Excel file, every random CSV on someone's desktop. We discovered years of data everyone had forgotten existed.
+
+Then came the hard part: convincing country managers to standardize. The secret? We didn't force it. We built translators for each region and let them keep their local formats. The pipeline handled the conversion.
+
+## What Changed
+
+The transformation was dramatic:
+- Data that used to take hours to access became available in minutes
+- Duplicate data was nearly eliminated
+- Manual reconciliation work dropped significantly
+- Daily processing capacity increased by orders of magnitude
+
+But here's the real win: the company discovered significant revenue leakage that only became visible when data from multiple regions was properly combined.
+
+## The Part That Still Bugs Me
+
+We built this beautiful self-healing pipeline. It detects issues, fixes common problems, even predicts when data quality will degrade. Fantastic, right?
+
+Except now people trust it too much. They dump garbage data in, expecting miracles. Technology can't fix bad business processes - it just makes them fail faster.
+
+Still, watching executives access real-time data on their phones during board meetings? That made all those late-night debugging sessions worth it.
