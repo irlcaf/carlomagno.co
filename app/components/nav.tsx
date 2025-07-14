@@ -8,6 +8,7 @@ import { buildLocalizedUrl, type PathKey } from 'app/lib/url-translations';
 
 const navItems: { pathKey?: PathKey | 'home'; translationKey: string; href?: string; external?: boolean }[] = [
   { pathKey: 'home', translationKey: 'home' },
+  { pathKey: 'services', translationKey: 'services' },
   { href: 'https://www.toukan.dev', translationKey: 'toukan', external: true },
   { pathKey: 'blog', translationKey: 'blog' },
   { pathKey: 'contact', translationKey: 'contact' },
@@ -15,7 +16,8 @@ const navItems: { pathKey?: PathKey | 'home'; translationKey: string; href?: str
 
 export function Navbar() {
   const pathname = usePathname();
-  const currentLocale = pathname.split('/')[1] as Locale;
+  const segments = pathname.split('/').filter(Boolean);
+  const currentLocale = (segments[0] || 'en') as Locale;
   const t = getTranslations(currentLocale);
 
   const getLocalizedPath = (pathKey: PathKey | 'home') => {

@@ -14,7 +14,7 @@ const locales = [
 export function LanguageSwitcher() {
   const pathname = usePathname();
   const segments = pathname.split('/').filter(Boolean);
-  const currentLocale = segments[0] as Locale;
+  const currentLocale = (segments[0] || 'en') as Locale;
 
   const getLocalizedPath = (targetLocale: string) => {
     // Handle home page

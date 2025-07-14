@@ -40,6 +40,10 @@ export type PathKey = keyof LocaleUrls['en'];
 
 // Get localized path for a given key
 export function getLocalizedPath(locale: Locale, pathKey: PathKey): string {
+  if (!locale || !urlTranslations[locale]) {
+    // Default to English if locale is invalid
+    return urlTranslations.en[pathKey];
+  }
   return urlTranslations[locale][pathKey];
 }
 
@@ -63,9 +67,10 @@ export function getPathKeyFromLocalizedPath(localizedPath: string): PathKey | nu
 
 // Build full localized URL
 export function buildLocalizedUrl(locale: Locale, pathKey: PathKey, slug?: string): string {
-  const localizedPath = getLocalizedPath(locale, pathKey);
+  const validLocale = locale || 'en';
+  const localizedPath = getLocalizedPath(validLocale as Locale, pathKey);
   if (slug) {
-    return `/${locale}/${localizedPath}/${slug}`;
+    return `/${validLocale}/${localizedPath}/${slug}`;
   }
-  return `/${locale}/${localizedPath}`;
+  return `/${validLocale}/${localizedPath}`;
 }
