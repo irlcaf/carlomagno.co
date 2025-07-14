@@ -57,45 +57,35 @@ export const projects: Project[] = [
     featured: true
   },
   {
-    title: "Secure IoT Platform for Energy Sector",
-    client: "Regional Energy Grid Operator",
-    duration: "16 weeks",
-    date: "2024-09-15",
-    tech: ["Rust", "Apache Kafka", "Time Series DB", "Kubernetes"],
-    description: "Implemented real-time anomaly detection system for 10,000+ IoT sensors across power grid infrastructure",
-    outcomes: [
-      "40% reduction in unplanned outages",
-      "Sub-second threat detection",
-      "Predictive maintenance with 95% accuracy"
-    ],
-    tags: ["Energy", "IoT", "Real-time Analytics"]
-  },
-  {
-    title: "Quantum-Resistant Telecom Infrastructure",
-    client: "Major LATAM Telecom Provider",
+    title: "Architecting an Email Solution with AWS Services and Blockchain",
+    client: "Enterprise Client",
     duration: "12 weeks",
-    date: "2024-08-10",
-    tech: ["Post-Quantum Crypto", "C++", "FPGA", "QKD"],
-    description: "Deployed hybrid classical-quantum encryption across core network infrastructure",
+    date: "2024-11-02",
+    tech: ["AWS SNS/SQS", "Lambda", "DynamoDB", "Blockchain", "SageMaker", "Kubernetes"],
+    description: "Designed a secure email processing system integrating AWS services with proprietary blockchain for data integrity and ML-powered threat detection",
     outcomes: [
-      "First quantum-safe network in region",
-      "Zero performance degradation",
-      "10+ year security horizon"
+      "Tamper-proof email records via blockchain integration",
+      "Automated threat detection with ML classification (spam, phishing)",
+      "Serverless architecture with auto-scaling capabilities",
+      "Privacy-compliant data sanitization and encryption"
     ],
-    tags: ["Telecom", "Quantum Security", "Cryptography"]
+    tags: ["AWS", "Blockchain", "Email Security", "ML"],
+    featured: true
   },
   {
-    title: "AI Ethics Platform for Government Services",
-    client: "National Government Agency",
-    duration: "16 weeks",
-    date: "2024-07-05",
-    tech: ["Python", "TensorFlow", "Explainable AI", "Blockchain"],
-    description: "Built bias detection and mitigation system for AI-driven citizen services",
+    title: "Vulnerability Research: Zero Day Engineering Course",
+    client: "Professional Development",
+    duration: "Intensive Training",
+    date: "2024-08-11",
+    tech: ["Vulnerability Research", "Abstract Modeling", "Cognitive Enhancement", "Security Frameworks"],
+    description: "Completed intensive training with Alisa, mastering complex vulnerability research concepts and establishing advanced analytical frameworks",
     outcomes: [
-      "Reduced algorithmic bias to <3%",
-      "Full audit trail for decisions",
-      "90% citizen satisfaction"
+      "Developed proper mindset for vulnerability research",
+      "Mastered abstract models and security frameworks",
+      "Enhanced cognitive skills for complex problem solving",
+      "Structured self-study roadmap with feedback loops"
     ],
-    tags: ["Government", "AI Ethics", "Public Services"]
+    tags: ["Security Research", "Training", "Vulnerability Analysis"],
+    featured: true
   }
 ];
