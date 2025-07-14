@@ -1,4 +1,4 @@
-import { BlogPosts } from 'app/components/posts';
+import { Projects } from 'app/components/projects';
 import Link from 'next/link';
 import { getTranslations, type Locale } from 'app/lib/translations';
 import { buildLocalizedUrl } from 'app/lib/url-translations';
@@ -54,7 +54,7 @@ export default async function Page({ params }: { params: Promise<{ locale: strin
             </svg>
           </Link>
         </div>
-        <BlogPosts locale={locale} />
+        <Projects featured={true} locale={locale} />
       </div>
     </section>
   );

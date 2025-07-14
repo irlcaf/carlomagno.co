@@ -6,11 +6,15 @@ import { LanguageSwitcher } from './language-switcher';
 import { getTranslations, type Locale } from 'app/lib/translations';
 import { buildLocalizedUrl, type PathKey } from 'app/lib/url-translations';
 
-const navItems: { pathKey?: PathKey | 'home'; translationKey: string; href?: string; external?: boolean }[] = [
+const navItems: {
+  pathKey?: PathKey | 'home';
+  translationKey: string;
+  href?: string;
+  external?: boolean;
+}[] = [
   { pathKey: 'home', translationKey: 'home' },
   { pathKey: 'services', translationKey: 'services' },
   { href: 'https://www.toukan.dev', translationKey: 'toukan', external: true },
-  { pathKey: 'blog', translationKey: 'blog' },
   { pathKey: 'contact', translationKey: 'contact' },
 ];
 
@@ -36,10 +40,15 @@ export function Navbar() {
         >
           <div className="flex flex-row space-x-0 pr-10">
             {navItems.map((item) => {
-              const { pathKey, translationKey, href: externalHref, external } = item;
+              const {
+                pathKey,
+                translationKey,
+                href: externalHref,
+                external,
+              } = item;
               const href = externalHref || getLocalizedPath(pathKey!);
               const key = pathKey || externalHref;
-              
+
               if (external) {
                 return (
                   <a
@@ -50,23 +59,23 @@ export function Navbar() {
                     className="transition-all hover:text-neutral-800 dark:hover:text-neutral-200 flex align-middle relative py-1 px-2 m-1 items-center"
                   >
                     {t[translationKey as keyof typeof t]}
-                    <svg 
-                      className="w-3 h-3 ml-1 opacity-50" 
-                      fill="none" 
-                      stroke="currentColor" 
+                    <svg
+                      className="w-3 h-3 ml-1 opacity-50"
+                      fill="none"
+                      stroke="currentColor"
                       viewBox="0 0 24 24"
                     >
-                      <path 
-                        strokeLinecap="round" 
-                        strokeLinejoin="round" 
-                        strokeWidth={2} 
-                        d="M10 6H6a2 2 0 00-2 2v10a2 2 0 002 2h10a2 2 0 002-2v-4M14 4h6m0 0v6m0-6L10 14" 
+                      <path
+                        strokeLinecap="round"
+                        strokeLinejoin="round"
+                        strokeWidth={2}
+                        d="M10 6H6a2 2 0 00-2 2v10a2 2 0 002 2h10a2 2 0 002-2v-4M14 4h6m0 0v6m0-6L10 14"
                       />
                     </svg>
                   </a>
                 );
               }
-              
+
               return (
                 <Link
                   key={key}

@@ -99,7 +99,7 @@ export default async function Page({ params }: { params: Promise<{ locale: strin
             <div className="flex items-start">
               <div className="w-1 h-1 rounded-full bg-neutral-400 mt-2 mr-3 flex-shrink-0"></div>
               <p className="text-sm text-neutral-700 dark:text-neutral-300">
-                Threat intelligence platforms for government agencies
+                Penetration testing engagements & social engineering assessments
               </p>
             </div>
             <div className="flex items-start">
@@ -213,18 +213,6 @@ export default async function Page({ params }: { params: Promise<{ locale: strin
             <h3 className="font-medium mb-1">Digital Transformation</h3>
             <p className="text-sm text-neutral-600 dark:text-neutral-400">
               Legacy system modernization and process automation
-            </p>
-          </div>
-          <div className="border border-neutral-200 dark:border-neutral-800 rounded-lg p-4">
-            <h3 className="font-medium mb-1">Technical Training</h3>
-            <p className="text-sm text-neutral-600 dark:text-neutral-400">
-              Team upskilling in security and data practices
-            </p>
-          </div>
-          <div className="border border-neutral-200 dark:border-neutral-800 rounded-lg p-4">
-            <h3 className="font-medium mb-1">Compliance & Audit</h3>
-            <p className="text-sm text-neutral-600 dark:text-neutral-400">
-              GDPR, SOC 2, and regional regulatory compliance
             </p>
           </div>
         </div>

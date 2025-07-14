@@ -2,6 +2,7 @@ import { getTranslations, type Locale } from 'app/lib/translations';
 import type { Metadata } from 'next';
 import Link from 'next/link';
 import { buildLocalizedUrl } from 'app/lib/url-translations';
+import { projects } from 'app/lib/projects-data';
 
 export async function generateMetadata({ params }: { params: Promise<{ locale: string }> }): Promise<Metadata> {
   return {
@@ -12,74 +13,6 @@ export async function generateMetadata({ params }: { params: Promise<{ locale: s
 
 export default async function ProjectsPage({ params }: { params: Promise<{ locale: string }> }) {
   const { locale } = await params;
-  
-  const projects = [
-    {
-      title: "Secure IoT Platform for Energy Sector",
-      client: "Regional Energy Grid Operator",
-      duration: "16 weeks",
-      tech: ["Rust", "Apache Kafka", "Time Series DB", "Kubernetes"],
-      description: "Implemented real-time anomaly detection system for 10,000+ IoT sensors across power grid infrastructure",
-      outcomes: [
-        "40% reduction in unplanned outages",
-        "Sub-second threat detection",
-        "Predictive maintenance with 95% accuracy"
-      ],
-      tags: ["Energy", "IoT", "Real-time Analytics"]
-    },
-    {
-      title: "Quantum-Resistant Telecom Infrastructure",
-      client: "Major LATAM Telecom Provider",
-      duration: "12 weeks",
-      tech: ["Post-Quantum Crypto", "C++", "FPGA", "QKD"],
-      description: "Deployed hybrid classical-quantum encryption across core network infrastructure",
-      outcomes: [
-        "First quantum-safe network in region",
-        "Zero performance degradation",
-        "10+ year security horizon"
-      ],
-      tags: ["Telecom", "Quantum Security", "Cryptography"]
-    },
-    {
-      title: "AI Ethics Platform for Government Services",
-      client: "National Government Agency",
-      duration: "16 weeks",
-      tech: ["Python", "TensorFlow", "Explainable AI", "Blockchain"],
-      description: "Built bias detection and mitigation system for AI-driven citizen services",
-      outcomes: [
-        "Reduced algorithmic bias to <3%",
-        "Full audit trail for decisions",
-        "90% citizen satisfaction"
-      ],
-      tags: ["Government", "AI Ethics", "Public Services"]
-    },
-    {
-      title: "Unified Data Platform for Smart Cities",
-      client: "Metropolitan Government",
-      duration: "20 weeks",
-      tech: ["Apache Spark", "Real-time Streaming", "Edge Computing", "5G"],
-      description: "Integrated data from traffic, utilities, and public safety into unified analytics platform",
-      outcomes: [
-        "25% reduction in traffic congestion",
-        "15% energy savings",
-        "Improved emergency response by 30%"
-      ],
-      tags: ["Smart Cities", "Data Integration", "Analytics"]
-    },
-    {
-      title: "Blockchain Verification for Journalism",
-      client: "Media Consortium",
-      duration: "8 weeks",
-      tech: ["Blockchain", "IPFS", "Zero-Knowledge Proofs", "Node.js"],
-      description: "Created content authenticity system to combat deepfakes and disinformation",
-      outcomes: [
-        "Verified 1M+ pieces of content",
-        "99.9% deepfake detection rate",
-        "Cross-platform integration"
-      ],
-      tags: ["Journalism", "Blockchain", "Disinformation"]
-    }
-  ];
 
   return (
     <section>
