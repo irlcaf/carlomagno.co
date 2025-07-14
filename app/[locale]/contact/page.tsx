@@ -6,9 +6,10 @@ import { buildLocalizedUrl } from 'app/lib/url-translations';
 export async function generateMetadata({
   params,
 }: {
-  params: { locale: string };
+  params: Promise<{ locale: string }>;
 }): Promise<Metadata> {
-  const t = getTranslations(params.locale as Locale);
+  const { locale } = await params;
+  const t = getTranslations(locale as Locale);
   return {
     title: t.contactTitle || 'Secure Contact',
     description:
@@ -16,13 +17,13 @@ export async function generateMetadata({
   };
 }
 
-export default function ContactPage({
+export default async function ContactPage({
   params,
 }: {
-  params: { locale: string };
+  params: Promise<{ locale: string }>;
 }) {
-  const t = getTranslations(params.locale as Locale);
-  const locale = params.locale as Locale;
+  const { locale } = await params;
+  const t = getTranslations(locale as Locale);
 
   return (
     <section>
@@ -72,7 +73,7 @@ export default function ContactPage({
           </a>
 
           <Link
-            href={buildLocalizedUrl(locale, 'pgp')}
+            href={buildLocalizedUrl(locale as Locale, 'pgp')}
             className="inline-flex items-center px-4 py-2 text-neutral-600 dark:text-neutral-400 hover:text-neutral-900 dark:hover:text-neutral-100 transition-colors"
           >
             {t.quickPgpGuide || 'PGP Setup Guide'}

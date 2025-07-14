@@ -3,15 +3,15 @@ import type { Metadata } from 'next';
 import Link from 'next/link';
 import { buildLocalizedUrl } from 'app/lib/url-translations';
 
-export async function generateMetadata({ params }: { params: { locale: string } }): Promise<Metadata> {
+export async function generateMetadata({ params }: { params: Promise<{ locale: string }> }): Promise<Metadata> {
   return {
     title: 'Projects',
     description: 'Recent projects and implementations in security and data infrastructure',
   };
 }
 
-export default function ProjectsPage({ params }: { params: { locale: string } }) {
-  const locale = params.locale;
+export default async function ProjectsPage({ params }: { params: Promise<{ locale: string }> }) {
+  const { locale } = await params;
   
   const projects = [
     {

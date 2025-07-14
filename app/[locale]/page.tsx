@@ -3,8 +3,9 @@ import Link from 'next/link';
 import { getTranslations, type Locale } from 'app/lib/translations';
 import { buildLocalizedUrl } from 'app/lib/url-translations';
 
-export default function Page({ params }: { params: { locale: string } }) {
-  const t = getTranslations(params.locale as Locale);
+export default async function Page({ params }: { params: Promise<{ locale: string }> }) {
+  const { locale } = await params;
+  const t = getTranslations(locale as Locale);
   return (
     <section>
       <div className="mb-8">
@@ -27,13 +28,13 @@ export default function Page({ params }: { params: { locale: string } }) {
 
       <div className="flex flex-wrap gap-4 mb-12">
         <Link
-          href={buildLocalizedUrl(params.locale as Locale, 'services')}
+          href={buildLocalizedUrl(locale as Locale, 'services')}
           className="inline-flex items-center px-4 py-2 border border-neutral-200 dark:border-neutral-800 rounded-lg hover:bg-neutral-100 dark:hover:bg-neutral-900 transition-colors"
         >
           {t.viewServices}
         </Link>
         <Link
-          href={buildLocalizedUrl(params.locale as Locale, 'contact')}
+          href={buildLocalizedUrl(locale as Locale, 'contact')}
           className="inline-flex items-center px-4 py-2 bg-neutral-900 dark:bg-neutral-100 text-neutral-100 dark:text-neutral-900 rounded-lg hover:bg-neutral-800 dark:hover:bg-neutral-200 transition-colors"
         >
           {t.contact}
@@ -44,7 +45,7 @@ export default function Page({ params }: { params: { locale: string } }) {
         <div className="flex items-center justify-between mb-6">
           <h3 className="text-xl font-semibold tracking-tighter">{t.latestWork}</h3>
           <Link
-            href={buildLocalizedUrl(params.locale as Locale, 'projects')}
+            href={buildLocalizedUrl(locale as Locale, 'projects')}
             className="text-sm text-neutral-600 dark:text-neutral-400 hover:text-neutral-900 dark:hover:text-neutral-100 transition-colors flex items-center"
           >
             {t.viewAllProjects || 'View All Projects'}
@@ -53,7 +54,7 @@ export default function Page({ params }: { params: { locale: string } }) {
             </svg>
           </Link>
         </div>
-        <BlogPosts locale={params.locale} />
+        <BlogPosts locale={locale} />
       </div>
     </section>
   );

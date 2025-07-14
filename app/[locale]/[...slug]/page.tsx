@@ -7,14 +7,14 @@ import PGPPage from '../pgp/page';
 import ContactPage from '../contact/page';
 
 interface PageProps {
-  params: {
+  params: Promise<{
     locale: string;
     slug: string[];
-  };
+  }>;
 }
 
-export default function DynamicPage({ params }: PageProps) {
-  const { locale, slug } = params;
+export default async function DynamicPage({ params }: PageProps) {
+  const { locale, slug } = await params;
   const path = slug[0];
   
   // Get the path key from the localized path
@@ -28,20 +28,20 @@ export default function DynamicPage({ params }: PageProps) {
   switch (pathKey) {
     case 'services':
       if (slug.length === 1) {
-        return <ServicesPage params={{ locale }} />;
+        return <ServicesPage params={Promise.resolve({ locale })} />;
       }
       // Handle service detail pages
       break;
       
     case 'projects':
       if (slug.length === 1) {
-        return <ProjectsPage params={{ locale }} />;
+        return <ProjectsPage params={Promise.resolve({ locale })} />;
       }
       break;
       
     case 'blog':
       if (slug.length === 1) {
-        return <BlogPage params={{ locale }} />;
+        return <BlogPage params={Promise.resolve({ locale })} />;
       }
       // Handle blog post pages
       break;
@@ -49,13 +49,13 @@ export default function DynamicPage({ params }: PageProps) {
       
     case 'contact':
       if (slug.length === 1) {
-        return <ContactPage params={{ locale }} />;
+        return <ContactPage params={Promise.resolve({ locale })} />;
       }
       break;
       
     case 'pgp':
       if (slug.length === 1) {
-        return <PGPPage params={{ locale }} />;
+        return <PGPPage params={Promise.resolve({ locale })} />;
       }
       break;
   }
@@ -64,7 +64,7 @@ export default function DynamicPage({ params }: PageProps) {
 }
 
 // Generate static params for all locale/path combinations
-export async function generateStaticParams() {
+export function generateStaticParams() {
   const locales = ['en', 'es', 'fr', 'zh'];
   const paths = ['services', 'servicios', 'projects', 'proyectos', 'projets', 'xiangmu', 'blog', 'boke', 'contact', 'contacto', 'lianxi', 'fuwu'];
   

@@ -4,7 +4,7 @@ import { getServices } from '../utils';
 import { baseUrl } from 'app/sitemap';
 import { formatDate } from '../../blog/utils';
 
-export async function generateStaticParams() {
+export function generateStaticParams() {
   let posts = getServices();
 
   return posts.map((post) => ({
@@ -12,8 +12,9 @@ export async function generateStaticParams() {
   }));
 }
 
-export function generateMetadata({ params }) {
-  let post = getServices().find((post) => post.slug === params.slug);
+export async function generateMetadata({ params }: { params: Promise<{ locale: string; slug: string }> }) {
+  const { slug } = await params;
+  let post = getServices().find((post) => post.slug === slug);
   if (!post) {
     return;
   }
@@ -53,8 +54,9 @@ export function generateMetadata({ params }) {
   };
 }
 
-export default function Service({ params }) {
-  let post = getServices().find((post) => post.slug === params.slug);
+export default async function Service({ params }: { params: Promise<{ locale: string; slug: string }> }) {
+  const { slug } = await params;
+  let post = getServices().find((post) => post.slug === slug);
 
   if (!post) {
     notFound();

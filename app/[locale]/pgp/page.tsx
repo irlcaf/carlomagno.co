@@ -2,15 +2,15 @@ import { getTranslations, type Locale } from 'app/lib/translations';
 import type { Metadata } from 'next';
 import Link from 'next/link';
 
-export async function generateMetadata({ params }: { params: { locale: string } }): Promise<Metadata> {
+export async function generateMetadata({ params }: { params: Promise<{ locale: string }> }): Promise<Metadata> {
   return {
     title: 'PGP Encryption Guide',
     description: 'How to use PGP encryption for secure communications',
   };
 }
 
-export default function PGPPage({ params }: { params: { locale: string } }) {
-  const locale = params.locale;
+export default async function PGPPage({ params }: { params: Promise<{ locale: string }> }) {
+  const { locale } = await params;
   
   return (
     <section className="prose dark:prose-invert max-w-none">

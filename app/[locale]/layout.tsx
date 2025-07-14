@@ -9,8 +9,9 @@ import Footer from '../components/footer';
 import { baseUrl } from '../sitemap';
 import { getTranslations, type Locale } from '../lib/translations';
 
-export async function generateMetadata({ params }: { params: { locale: string } }): Promise<Metadata> {
-  const t = getTranslations(params.locale as Locale);
+export async function generateMetadata({ params }: { params: Promise<{ locale: string }> }): Promise<Metadata> {
+  const { locale } = await params;
+  const t = getTranslations(locale as Locale);
   
   return {
     title: {
@@ -39,18 +40,19 @@ export async function generateMetadata({ params }: { params: { locale: string } 
   };
 }
 
-const cx = (...classes) => classes.filter(Boolean).join(' ');
+const cx = (...classes: (string | false | undefined)[]) => classes.filter(Boolean).join(' ');
 
-export default function RootLayout({
+export default async function RootLayout({
   children,
   params,
 }: {
   children: React.ReactNode;
-  params: { locale: string };
+  params: Promise<{ locale: string }>;
 }) {
+  const { locale } = await params;
   return (
     <html
-      lang={params.locale}
+      lang={locale}
       className={cx(
         'text-black bg-white dark:text-white dark:bg-black',
         GeistSans.variable,
