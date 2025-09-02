@@ -158,45 +158,6 @@ export default async function Page({ params }: { params: Promise<{ locale: strin
           </Link>
         </div>
 
-        {/* AI Governance */}
-        <div className="border border-neutral-200 dark:border-neutral-800 rounded-lg p-6 hover:border-neutral-400 dark:hover:border-neutral-600 transition-colors">
-          <div className="flex items-start justify-between mb-4">
-            <div>
-              <h3 className="text-xl font-semibold mb-2">AI Governance & Ethics</h3>
-              <p className="text-neutral-600 dark:text-neutral-400">
-                Responsible AI frameworks for government and enterprise deployment
-              </p>
-            </div>
-          </div>
-          
-          <div className="space-y-3 mb-4">
-            <div className="flex items-start">
-              <div className="w-1 h-1 rounded-full bg-neutral-400 mt-2 mr-3 flex-shrink-0"></div>
-              <p className="text-sm text-neutral-700 dark:text-neutral-300">
-                Bias detection and mitigation in government AI systems
-              </p>
-            </div>
-            <div className="flex items-start">
-              <div className="w-1 h-1 rounded-full bg-neutral-400 mt-2 mr-3 flex-shrink-0"></div>
-              <p className="text-sm text-neutral-700 dark:text-neutral-300">
-                Transparency frameworks for algorithmic decision-making
-              </p>
-            </div>
-            <div className="flex items-start">
-              <div className="w-1 h-1 rounded-full bg-neutral-400 mt-2 mr-3 flex-shrink-0"></div>
-              <p className="text-sm text-neutral-700 dark:text-neutral-300">
-                Compliance tools for regional AI regulations
-              </p>
-            </div>
-          </div>
-          
-          <Link 
-            href={buildLocalizedUrl(locale as Locale, 'contact')} 
-            className="inline-flex items-center text-sm font-medium hover:underline"
-          >
-            Request Consultation →
-          </Link>
-        </div>
       </div>
 
       {/* Supporting Services Section */}

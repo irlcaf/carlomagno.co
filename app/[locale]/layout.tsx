@@ -6,6 +6,7 @@ import { Navbar } from '../components/nav';
 import { Analytics } from '@vercel/analytics/react';
 import { SpeedInsights } from '@vercel/speed-insights/next';
 import Footer from '../components/footer';
+import CalFloatingButton from '../components/cal-floating-button';
 import { baseUrl } from '../sitemap';
 import { getTranslations, type Locale } from '../lib/translations';
 
@@ -66,6 +67,7 @@ export default async function RootLayout({
           <Footer />
           <Analytics />
           <SpeedInsights />
+          <CalFloatingButton />
         </main>
       </body>
     </html>

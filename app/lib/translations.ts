@@ -3,8 +3,7 @@ import { cache } from 'react';
 const translations = {
   en: {
     hero: "Researcher",
-    bio: "Security researcher and software engineer specializing in data handling, algorithms, cybersecurity, and intelligence. Currently focused on data and security research to unify datasets, detect threats, and enable predictive insights. Founder of Toukan.dev, supporting critical infrastructure in LATAM sectors like energy, telecom, and government.",
-    valueProp: "Partner for 16 weeks to deploy secure data platforms that integrate silos, apply algorithms for insights, and strengthen defenses in high-risk environments.",
+    bio: "Tackling challenges from first principles: decomposing problems into core elements using algorithms, data structures, and computation theory for rigorous, efficient solutions. I create custom-built solutions tailored to your specific needs, optimizing existing systems or developing new code while focusing on your unique constraints rather than generic tools. I deliver quick, creative prototypes by bending rules for speed, using techniques like caching and parallel processing to achieve fast results. I connect teams by clearly explaining technical details to leaders and turning business goals into detailed plans for developers, ensuring smooth progress. I partner with startups, companies, and innovators who want full project ownership and reliable outcomes with minimal oversight.",
     latestWork: "Latest Work",
     viewServices: "View Services",
     readBlog: "Read Blog",
@@ -31,8 +30,7 @@ const translations = {
   },
   es: {
     hero: "Investigador",
-    bio: "Investigador de seguridad e ingeniero de software especializado en manejo de datos, algoritmos, ciberseguridad e inteligencia. Actualmente enfocado en investigación de datos y seguridad para unificar datasets, detectar amenazas y habilitar análisis predictivos. Fundador de Toukan.dev, apoyando infraestructura crítica en sectores de LATAM como energía, telecomunicaciones y gobierno.",
-    valueProp: "Colabora durante 16 semanas para implementar plataformas de datos seguras que integren silos, apliquen algoritmos para obtener insights y fortalezcan las defensas en entornos de alto riesgo.",
+    bio: "Abordo desafíos desde los primeros principios: descomponiendo problemas en elementos centrales usando algoritmos, estructuras de datos y teoría de la computación para soluciones rigurosas y eficientes. Creo soluciones personalizadas adaptadas a tus necesidades específicas, optimizando sistemas existentes o desarrollando nuevo código mientras me enfoco en tus restricciones únicas en lugar de herramientas genéricas. Entrego prototipos rápidos y creativos doblando las reglas por velocidad, usando técnicas como caché y procesamiento paralelo para lograr resultados rápidos. Conecto equipos explicando claramente detalles técnicos a líderes y convirtiendo objetivos de negocio en planes detallados para desarrolladores, asegurando un progreso fluido. Me asocio con startups, empresas e innovadores que desean propiedad total del proyecto y resultados confiables con supervisión mínima.",
     latestWork: "Trabajo Reciente",
     viewServices: "Ver Servicios",
     readBlog: "Leer Blog",
@@ -59,8 +57,7 @@ const translations = {
   },
   fr: {
     hero: "Chercheur",
-    bio: "Chercheur en sécurité et ingénieur logiciel spécialisé dans la gestion des données, les algorithmes, la cybersécurité et le renseignement. Actuellement axé sur la recherche en données et sécurité pour unifier les ensembles de données, détecter les menaces et permettre des analyses prédictives. Fondateur de Toukan.dev, soutenant les infrastructures critiques dans les secteurs LATAM comme l'énergie, les télécommunications et le gouvernement.",
-    valueProp: "Partenaire pendant 16 semaines pour déployer des plateformes de données sécurisées qui intègrent les silos, appliquent des algorithmes pour obtenir des insights et renforcent les défenses dans des environnements à haut risque.",
+    bio: "J'aborde les défis à partir des premiers principes : décomposer les problèmes en éléments fondamentaux en utilisant des algorithmes, des structures de données et la théorie du calcul pour des solutions rigoureuses et efficaces. Je crée des solutions sur mesure adaptées à vos besoins spécifiques, optimisant les systèmes existants ou développant du nouveau code tout en me concentrant sur vos contraintes uniques plutôt que sur des outils génériques. Je livre des prototypes rapides et créatifs en contournant les règles pour la vitesse, en utilisant des techniques comme la mise en cache et le traitement parallèle pour obtenir des résultats rapides. Je connecte les équipes en expliquant clairement les détails techniques aux dirigeants et en transformant les objectifs commerciaux en plans détaillés pour les développeurs, assurant une progression fluide. Je m'associe avec des startups, des entreprises et des innovateurs qui veulent une propriété complète du projet et des résultats fiables avec une supervision minimale.",
     latestWork: "Travaux Récents",
     viewServices: "Voir les Services",
     readBlog: "Lire le Blog",
@@ -87,8 +84,7 @@ const translations = {
   },
   zh: {
     hero: "研究员",
-    bio: "安全研究员和软件工程师，专注于数据处理、算法、网络安全和情报。目前专注于数据和安全研究，以统一数据集、检测威胁并实现预测性洞察。Toukan.dev的创始人，支持拉丁美洲能源、电信和政府等关键基础设施部门。",
-    valueProp: "合作16周，部署安全数据平台，整合孤岛、应用算法获取洞察，并在高风险环境中加强防御。",
+    bio: "从第一性原理解决挑战：使用算法、数据结构和计算理论将问题分解为核心元素，以获得严格、高效的解决方案。我创建针对您特定需求量身定制的解决方案，优化现有系统或开发新代码，同时专注于您的独特约束而不是通用工具。我通过打破规则来快速交付创意原型，使用缓存和并行处理等技术来实现快速结果。我通过向领导者清楚地解释技术细节并将业务目标转化为开发人员的详细计划来连接团队，确保顺利进展。我与希望拥有项目完全所有权和可靠成果且需要最少监督的初创公司、企业和创新者合作。",
     latestWork: "最新工作",
     viewServices: "查看服务",
     readBlog: "阅读博客",

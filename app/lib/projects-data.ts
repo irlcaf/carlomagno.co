@@ -12,33 +12,19 @@ export interface Project {
 
 export const projects: Project[] = [
   {
-    title: "Factory Vision System",
-    client: "Manufacturing Facility",
-    duration: "16 weeks",
-    date: "2024-12-15",
-    tech: ["YOLO", "Python", "Edge Computing", "Multi-camera Arrays"],
-    description: "Built a computer vision system that dramatically improved defect detection using synchronized multi-camera arrays",
+    title: "Pharma Digital Transformation",
+    client: "Pharmaceutical Manufacturer",
+    duration: "20 weeks",
+    date: "2024-12-01",
+    tech: ["Custom Algorithms", "Python", "Apache Kafka", "Cloud Platforms", "Automation Scripts"],
+    description: "Led bespoke digital transformation for non-tech pharma firm: decomposed regulatory compliance, manufacturing workflows, R&D processes, and data pipelines into atomic elements; crafted custom platform for seamless integration and automation from first principles.",
     outcomes: [
-      "Improved defect detection from manual inspection baseline",
-      "Real-time processing with minimal latency",
-      "Significant cost savings from reduced returns"
+      "Enhanced compliance accuracy via automated regulatory checks",
+      "Accelerated R&D cycles through optimized data flows",
+      "Unified disparate systems, reducing silos and enabling real-time insights",
+      "High-performance pipelines with low-latency processing"
     ],
-    tags: ["Computer Vision", "Manufacturing", "Quality Control"],
-    featured: true
-  },
-  {
-    title: "Data Pipeline Overhaul",
-    client: "Enterprise Corporation",
-    duration: "16 weeks",
-    date: "2024-11-28",
-    tech: ["Apache Kafka", "Flink", "Python", "Cloud Architecture"],
-    description: "Unified dozens of data sources across multiple countries into a single pipeline, dramatically reducing data delays",
-    outcomes: [
-      "Data delays reduced from hours to minutes",
-      "Near elimination of duplicate data",
-      "Discovered significant revenue leakage through unified view"
-    ],
-    tags: ["Data Engineering", "ETL", "Enterprise"],
+    tags: ["Digital Transformation", "Pharma Compliance", "Workflow Automation", "R&D Optimization", "Data Integration"],
     featured: true
   },
   {

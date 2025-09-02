@@ -21,9 +21,6 @@ export default async function Page({ params }: { params: Promise<{ locale: strin
         <p className="mb-4 text-neutral-700 dark:text-neutral-300">
           {t.bio}
         </p>
-        <p className="mb-4 text-neutral-700 dark:text-neutral-300">
-          {t.valueProp}
-        </p>
       </div>
 
       <div className="flex flex-wrap gap-4 mb-12">
