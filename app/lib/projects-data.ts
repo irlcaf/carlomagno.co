@@ -12,66 +12,66 @@ export interface Project {
 
 export const projects: Project[] = [
   {
-    title: "Pharma Digital Transformation",
-    client: "Pharmaceutical Manufacturer",
+    title: "Pharma Workflow Automation",
+    client: "Pharmaceutical operations",
     duration: "20 weeks",
     date: "2024-12-01",
     tech: ["Custom Algorithms", "Python", "Apache Kafka", "Cloud Platforms", "Automation Scripts"],
-    description: "Led bespoke digital transformation for non-tech pharma firm: decomposed regulatory compliance, manufacturing workflows, R&D processes, and data pipelines into atomic elements; crafted custom platform for seamless integration and automation from first principles.",
+    description: "Built an internal platform to connect compliance checks, manufacturing workflows, research inputs, and reporting pipelines for a pharmaceutical company.",
     outcomes: [
-      "Enhanced compliance accuracy via automated regulatory checks",
-      "Accelerated R&D cycles through optimized data flows",
-      "Unified disparate systems, reducing silos and enabling real-time insights",
-      "High-performance pipelines with low-latency processing"
+      "Automated recurring compliance checks",
+      "Reduced manual handoffs between research, operations, and reporting",
+      "Created a single workflow across previously separate systems",
+      "Improved turnaround on internal data-processing tasks"
     ],
-    tags: ["Digital Transformation", "Pharma Compliance", "Workflow Automation", "R&D Optimization", "Data Integration"],
+    tags: ["Pharma", "Workflow Automation", "Compliance", "Data Pipelines"],
     featured: true
   },
   {
     title: "Vision Algorithms",
-    client: "Industrial Client",
+    client: "Industrial inspection system",
     duration: "12 weeks",
     date: "2024-10-20", 
     tech: ["Custom Algorithms", "C++", "CUDA", "TensorRT"],
-    description: "Developed custom vision algorithms that significantly outperformed standard approaches for industrial applications",
+    description: "Designed and deployed computer-vision algorithms for industrial inspection, with a strong focus on speed, compact models, and edge deployment.",
     outcomes: [
-      "3x faster processing than standard implementations",
-      "Reduced model size while maintaining accuracy",
-      "Deployed across multiple edge platforms"
+      "Lower latency than the initial baseline pipeline",
+      "Smaller deployment footprint on target devices",
+      "Shipped across multiple edge environments"
     ],
-    tags: ["Algorithms", "Computer Vision", "Performance"],
+    tags: ["Algorithms", "Computer Vision", "Edge Deployment"],
     featured: true
   },
   {
-    title: "Architecting an Email Solution with AWS Services and Blockchain",
-    client: "Enterprise Client",
+    title: "Secure Email Processing on AWS",
+    client: "Secure communications platform",
     duration: "12 weeks",
     date: "2024-11-02",
     tech: ["AWS SNS/SQS", "Lambda", "DynamoDB", "Blockchain", "SageMaker", "Kubernetes"],
-    description: "Designed a secure email processing system integrating AWS services with proprietary blockchain for data integrity and ML-powered threat detection",
+    description: "Designed an event-driven pipeline for receiving, decrypting, sanitizing, classifying, and storing email data across AWS services and a proprietary blockchain layer.",
     outcomes: [
-      "Tamper-proof email records via blockchain integration",
-      "Automated threat detection with ML classification (spam, phishing)",
-      "Serverless architecture with auto-scaling capabilities",
-      "Privacy-compliant data sanitization and encryption"
+      "Separated ingestion, parsing, and storage into recoverable stages",
+      "Added automated spam and phishing classification",
+      "Preserved an auditable record of sanitized email events",
+      "Used serverless components where bursty traffic made them practical"
     ],
-    tags: ["AWS", "Blockchain", "Email Security", "ML"],
+    tags: ["AWS", "Email Security", "Event-Driven Systems", "ML"],
     featured: true
   },
   {
-    title: "Vulnerability Research: Zero Day Engineering Course",
-    client: "Professional Development",
-    duration: "Intensive Training",
-    date: "2024-08-11",
-    tech: ["Vulnerability Research", "Abstract Modeling", "Cognitive Enhancement", "Security Frameworks"],
-    description: "Completed intensive training with Alisa, mastering complex vulnerability research concepts and establishing advanced analytical frameworks",
+    title: "Data Pipeline Overhaul",
+    client: "Multi-country operations",
+    duration: "18 weeks",
+    date: "2024-11-28",
+    tech: ["Python", "ETL", "Data Modeling", "Automation", "Operational Analytics"],
+    description: "Reworked a brittle data pipeline that depended on manual scripts and inconsistent regional formats, turning it into a maintained ingestion and reconciliation flow.",
     outcomes: [
-      "Developed proper mindset for vulnerability research",
-      "Mastered abstract models and security frameworks",
-      "Enhanced cognitive skills for complex problem solving",
-      "Structured self-study roadmap with feedback loops"
+      "Reduced manual reconciliation work across teams",
+      "Made multi-source reporting available on a predictable schedule",
+      "Improved visibility into duplicated and inconsistent data",
+      "Created a path for regional format differences without blocking the whole pipeline"
     ],
-    tags: ["Security Research", "Training", "Vulnerability Analysis"],
+    tags: ["Data Pipelines", "Operations", "Automation", "Reporting"],
     featured: true
   }
 ];

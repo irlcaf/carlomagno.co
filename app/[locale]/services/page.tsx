@@ -1,182 +1,122 @@
-import { getTranslations, type Locale } from 'app/lib/translations';
 import type { Metadata } from 'next';
 import Link from 'next/link';
-import { buildLocalizedUrl } from 'app/lib/url-translations';
+import { buildLocalizedUrl, type Locale } from 'app/lib/url-translations';
+import { getServicesContent } from 'app/lib/services-data';
+import { baseUrl } from 'app/sitemap';
 
-export async function generateMetadata({ params }: { params: Promise<{ locale: string }> }): Promise<Metadata> {
+export async function generateMetadata({
+  params,
+}: {
+  params: Promise<{ locale: string }>;
+}): Promise<Metadata> {
   const { locale } = await params;
-  const t = getTranslations(locale as Locale);
+  const content = getServicesContent(locale as Locale);
+  const canonicalPath = buildLocalizedUrl(locale as Locale, 'services');
+  const canonicalUrl = `${baseUrl}${canonicalPath}`;
+
   return {
-    title: t.services,
-    description: t.description,
+    title: content.title,
+    description: content.intro,
+    alternates: {
+      canonical: canonicalUrl,
+      languages: {
+        en: `${baseUrl}${buildLocalizedUrl('en', 'services')}`,
+        es: `${baseUrl}${buildLocalizedUrl('es', 'services')}`,
+        zh: `${baseUrl}${buildLocalizedUrl('zh', 'services')}`,
+        'x-default': `${baseUrl}${buildLocalizedUrl('en', 'services')}`,
+      },
+    },
+    openGraph: {
+      title: content.title,
+      description: content.intro,
+      url: canonicalUrl,
+      siteName: 'Carlomagno',
+      type: 'website',
+    },
   };
 }
 
-export default async function Page({ params }: { params: Promise<{ locale: string }> }) {
+export default async function Page({
+  params,
+}: {
+  params: Promise<{ locale: string }>;
+}) {
   const { locale } = await params;
-  const t = getTranslations(locale as Locale);
-  
+  const content = getServicesContent(locale as Locale);
+
   return (
     <section>
       <div className="mb-12">
         <h1 className="font-semibold text-3xl mb-4 tracking-tighter">
-          Core Services
+          {content.title}
         </h1>
-        <p className="text-neutral-600 dark:text-neutral-400 text-lg mb-8">
-          Specialized solutions for LATAM's critical infrastructure sectors
+        <p className="text-neutral-700 dark:text-neutral-300 text-lg">
+          {content.intro}
         </p>
-        
-        {/* How We Work Section */}
-        <div className="bg-neutral-50 dark:bg-neutral-950 rounded-lg p-6 mb-12">
-          <h2 className="text-lg font-semibold mb-2">How We Work</h2>
-          <p className="text-neutral-700 dark:text-neutral-300">
-            Collaborative 16-week partnerships for tailored deployments. We integrate with your team, 
-            understand your unique challenges, and deliver solutions that scale with your organization.
-          </p>
-        </div>
       </div>
 
-      {/* Core Services Grid */}
-      <div className="grid gap-8 mb-12">
-        {/* Data Analytics */}
-        <div className="border border-neutral-200 dark:border-neutral-800 rounded-lg p-6 hover:border-neutral-400 dark:hover:border-neutral-600 transition-colors">
-          <div className="flex items-start justify-between mb-4">
-            <div>
-              <h3 className="text-xl font-semibold mb-2">Data Analytics & Intelligence</h3>
-              <p className="text-neutral-600 dark:text-neutral-400">
-                Unified data platforms for government intelligence and enterprise decision-making
-              </p>
-            </div>
-          </div>
-          
-          <div className="space-y-3 mb-4">
-            <div className="flex items-start">
-              <div className="w-1 h-1 rounded-full bg-neutral-400 mt-2 mr-3 flex-shrink-0"></div>
-              <p className="text-sm text-neutral-700 dark:text-neutral-300">
-                Sustainability tracking for construction and green analytics
-              </p>
-            </div>
-            <div className="flex items-start">
-              <div className="w-1 h-1 rounded-full bg-neutral-400 mt-2 mr-3 flex-shrink-0"></div>
-              <p className="text-sm text-neutral-700 dark:text-neutral-300">
-                Real-time data unification across 40+ source systems
-              </p>
-            </div>
-            <div className="flex items-start">
-              <div className="w-1 h-1 rounded-full bg-neutral-400 mt-2 mr-3 flex-shrink-0"></div>
-              <p className="text-sm text-neutral-700 dark:text-neutral-300">
-                Predictive analytics for energy grid optimization
-              </p>
-            </div>
-          </div>
-          
-          <Link 
-            href={buildLocalizedUrl(locale as Locale, 'contact')} 
-            className="inline-flex items-center text-sm font-medium hover:underline"
+      <div className="space-y-8">
+        {content.practiceAreas.map((area) => (
+          <div
+            key={area.title}
+            className="border border-neutral-200 dark:border-neutral-800 rounded-lg p-6"
           >
-            Request Consultation →
-          </Link>
-        </div>
-
-        {/* Cybersecurity */}
-        <div className="border border-neutral-200 dark:border-neutral-800 rounded-lg p-6 hover:border-neutral-400 dark:hover:border-neutral-600 transition-colors">
-          <div className="flex items-start justify-between mb-4">
-            <div>
-              <h3 className="text-xl font-semibold mb-2">Cybersecurity & Infrastructure Protection</h3>
-              <p className="text-neutral-600 dark:text-neutral-400">
-                Quantum-resistant solutions and industrial IoT security for energy/telecom
-              </p>
+            <h2 className="text-xl font-semibold mb-3">{area.title}</h2>
+            <p className="text-neutral-700 dark:text-neutral-300 mb-4">
+              {area.summary}
+            </p>
+            <ul className="list-disc list-inside space-y-2 text-sm text-neutral-600 dark:text-neutral-400 mb-5">
+              {area.points.map((point) => (
+                <li key={point}>{point}</li>
+              ))}
+            </ul>
+            {area.examples.length > 0 && (
+              <div className="mb-5">
+                <p className="text-xs uppercase tracking-[0.2em] text-neutral-500 dark:text-neutral-500 mb-3">
+                  {content.selectedExamplesLabel}
+                </p>
+                <div className="space-y-3">
+                  {area.examples.map((example) => (
+                    <div
+                      key={example.title}
+                      className="rounded-lg border border-neutral-200 dark:border-neutral-800 p-4"
+                    >
+                      <h3 className="font-medium text-neutral-900 dark:text-neutral-100">
+                        {example.title}
+                      </h3>
+                      <p className="text-sm text-neutral-600 dark:text-neutral-400 mt-1">
+                        {example.description}
+                      </p>
+                    </div>
+                  ))}
+                </div>
+              </div>
+            )}
+            <div className="flex flex-wrap gap-4 text-sm">
+              {area.links.map((link) => (
+                <Link
+                  key={link.href}
+                  href={link.href}
+                  className="underline decoration-neutral-300 underline-offset-4 hover:decoration-neutral-700 dark:decoration-neutral-700 dark:hover:decoration-neutral-200"
+                >
+                  {link.label}
+                </Link>
+              ))}
             </div>
           </div>
-          
-          <div className="space-y-3 mb-4">
-            <div className="flex items-start">
-              <div className="w-1 h-1 rounded-full bg-neutral-400 mt-2 mr-3 flex-shrink-0"></div>
-              <p className="text-sm text-neutral-700 dark:text-neutral-300">
-                Zero-trust architecture for critical infrastructure
-              </p>
-            </div>
-            <div className="flex items-start">
-              <div className="w-1 h-1 rounded-full bg-neutral-400 mt-2 mr-3 flex-shrink-0"></div>
-              <p className="text-sm text-neutral-700 dark:text-neutral-300">
-                Penetration testing engagements & social engineering assessments
-              </p>
-            </div>
-            <div className="flex items-start">
-              <div className="w-1 h-1 rounded-full bg-neutral-400 mt-2 mr-3 flex-shrink-0"></div>
-              <p className="text-sm text-neutral-700 dark:text-neutral-300">
-                Industrial control systems (ICS) security assessments
-              </p>
-            </div>
-          </div>
-          
-          <Link 
-            href={buildLocalizedUrl(locale as Locale, 'contact')} 
-            className="inline-flex items-center text-sm font-medium hover:underline"
-          >
-            Request Consultation →
-          </Link>
-        </div>
-
-        {/* Algorithms & Software */}
-        <div className="border border-neutral-200 dark:border-neutral-800 rounded-lg p-6 hover:border-neutral-400 dark:hover:border-neutral-600 transition-colors">
-          <div className="flex items-start justify-between mb-4">
-            <div>
-              <h3 className="text-xl font-semibold mb-2">Algorithm Development & Software Engineering</h3>
-              <p className="text-neutral-600 dark:text-neutral-400">
-                Custom algorithms and high-performance systems for complex challenges
-              </p>
-            </div>
-          </div>
-          
-          <div className="space-y-3 mb-4">
-            <div className="flex items-start">
-              <div className="w-1 h-1 rounded-full bg-neutral-400 mt-2 mr-3 flex-shrink-0"></div>
-              <p className="text-sm text-neutral-700 dark:text-neutral-300">
-                Computer vision systems for industrial quality control
-              </p>
-            </div>
-            <div className="flex items-start">
-              <div className="w-1 h-1 rounded-full bg-neutral-400 mt-2 mr-3 flex-shrink-0"></div>
-              <p className="text-sm text-neutral-700 dark:text-neutral-300">
-                AI governance tools for journalism against disinformation
-              </p>
-            </div>
-            <div className="flex items-start">
-              <div className="w-1 h-1 rounded-full bg-neutral-400 mt-2 mr-3 flex-shrink-0"></div>
-              <p className="text-sm text-neutral-700 dark:text-neutral-300">
-                Optimization algorithms for logistics and supply chain
-              </p>
-            </div>
-          </div>
-          
-          <Link 
-            href={buildLocalizedUrl(locale as Locale, 'contact')} 
-            className="inline-flex items-center text-sm font-medium hover:underline"
-          >
-            Request Consultation →
-          </Link>
-        </div>
-
+        ))}
       </div>
 
-      {/* Supporting Services Section */}
-      <div className="mt-16">
-        <h2 className="text-2xl font-semibold mb-6">Supporting Services</h2>
-        <div className="grid md:grid-cols-2 gap-4">
-          <div className="border border-neutral-200 dark:border-neutral-800 rounded-lg p-4">
-            <h3 className="font-medium mb-1">Cloud Infrastructure</h3>
-            <p className="text-sm text-neutral-600 dark:text-neutral-400">
-              Secure cloud migrations and hybrid architectures
-            </p>
-          </div>
-          <div className="border border-neutral-200 dark:border-neutral-800 rounded-lg p-4">
-            <h3 className="font-medium mb-1">Digital Transformation</h3>
-            <p className="text-sm text-neutral-600 dark:text-neutral-400">
-              Legacy system modernization and process automation
-            </p>
-          </div>
-        </div>
+      <div className="mt-12 rounded-lg bg-neutral-50 dark:bg-neutral-950 p-6">
+        <p className="text-neutral-700 dark:text-neutral-300">
+          {content.ctaText}
+        </p>
+        <Link
+          href={buildLocalizedUrl(locale as Locale, 'contact')}
+          className="inline-flex items-center mt-4 text-sm font-medium underline decoration-neutral-300 underline-offset-4 hover:decoration-neutral-700 dark:decoration-neutral-700 dark:hover:decoration-neutral-200"
+        >
+          {content.ctaLinkLabel}
+        </Link>
       </div>
     </section>
   );

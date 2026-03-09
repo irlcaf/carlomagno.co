@@ -9,22 +9,35 @@ import Footer from '../components/footer';
 import CalFloatingButton from '../components/cal-floating-button';
 import { baseUrl } from '../sitemap';
 import { getTranslations, type Locale } from '../lib/translations';
+import Script from 'next/script';
+import { GoogleAnalyticsPageview } from '../components/analytics/google-analytics';
 
 export async function generateMetadata({ params }: { params: Promise<{ locale: string }> }): Promise<Metadata> {
   const { locale } = await params;
   const t = getTranslations(locale as Locale);
+  const canonicalUrl = `${baseUrl}/${locale}`;
   
   return {
+    metadataBase: new URL(baseUrl),
     title: {
       default: t.title,
-      template: '%s | Carlomagno Amaya',
+      template: '%s | Carlomagno',
     },
     description: t.description,
+    alternates: {
+      canonical: canonicalUrl,
+      languages: {
+        en: `${baseUrl}/en`,
+        es: `${baseUrl}/es`,
+        zh: `${baseUrl}/zh`,
+        'x-default': `${baseUrl}/en`,
+      },
+    },
     openGraph: {
       title: t.title,
       description: t.description,
-      url: baseUrl,
-      siteName: 'Carlomagno Amaya',
+      url: canonicalUrl,
+      siteName: 'Carlomagno',
       type: 'website',
     },
     robots: {
@@ -42,6 +55,7 @@ export async function generateMetadata({ params }: { params: Promise<{ locale: s
 }
 
 const cx = (...classes: (string | false | undefined)[]) => classes.filter(Boolean).join(' ');
+const gaMeasurementId = process.env.NEXT_PUBLIC_GA_MEASUREMENT_ID;
 
 export default async function RootLayout({
   children,
@@ -61,7 +75,28 @@ export default async function RootLayout({
       )}
     >
       <body className="antialiased max-w-xl mx-4 mt-8 lg:mx-auto">
+        {gaMeasurementId ? (
+          <>
+            <Script
+              src={`https://www.googletagmanager.com/gtag/js?id=${gaMeasurementId}`}
+              strategy="afterInteractive"
+            />
+            <Script id="gtag-init" strategy="afterInteractive">
+              {`
+                window.dataLayer = window.dataLayer || [];
+                function gtag(){dataLayer.push(arguments);}
+                window.gtag = gtag;
+                gtag('js', new Date());
+                gtag('config', '${gaMeasurementId}', {
+                  page_path: window.location.pathname,
+                  send_page_view: false,
+                });
+              `}
+            </Script>
+          </>
+        ) : null}
         <main className="flex-auto min-w-0 mt-6 flex flex-col px-2 md:px-0">
+          <GoogleAnalyticsPageview />
           <Navbar />
           {children}
           <Footer />

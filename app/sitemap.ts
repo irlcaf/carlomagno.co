@@ -3,7 +3,7 @@ import { buildLocalizedUrl, type Locale } from 'app/lib/url-translations'
 
 export const baseUrl = 'https://carlomagno.co'
 
-const locales: Locale[] = ['en', 'es', 'fr', 'zh'];
+const locales: Locale[] = ['en', 'es', 'zh'];
 
 export default async function sitemap() {
   let blogs = getBlogPosts().flatMap((post) => 
@@ -27,11 +27,15 @@ export default async function sitemap() {
       lastModified: new Date().toISOString().split('T')[0],
     },
     {
-      url: `${baseUrl}${buildLocalizedUrl(locale, 'projects')}`,
+      url: `${baseUrl}${buildLocalizedUrl(locale, 'now')}`,
       lastModified: new Date().toISOString().split('T')[0],
     },
     {
-      url: `${baseUrl}${buildLocalizedUrl(locale, 'toukan')}`,
+      url: `${baseUrl}${buildLocalizedUrl(locale, 'contact')}`,
+      lastModified: new Date().toISOString().split('T')[0],
+    },
+    {
+      url: `${baseUrl}${buildLocalizedUrl(locale, 'pgp')}`,
       lastModified: new Date().toISOString().split('T')[0],
     },
   ])

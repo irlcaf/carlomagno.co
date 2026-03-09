@@ -1,24 +1,32 @@
-**Major Changes Made:**
+# carlomagno.co
 
-- Improved MDX support with enhanced syntax highlighting and font rendering
-- Optimized database queries for faster loading times on large datasets
-- Enhanced accessibility features, including high contrast mode and keyboard navigation
+Personal site and writing archive for Carlomagno Amaya.
 
-## New Features Added:
+## Stack
 
-- **Customizable Header**: Adjust header layout, typography, and color scheme to suit your branding
-- **Social Media Links**: Add social media profiles directly from the homepage
+- Next.js 16 App Router
+- React 19
+- TypeScript
+- Tailwind CSS 4
+- MDX content loaded from the `app/` directory
 
-## Todo List:
+## Development
 
-### Technical Tasks
+```bash
+npm install
+npm run dev
+```
 
-1. Implement automatic sitemap updates with new blog post creations
-2. Implement theme switcher
-3. Implement language selector (FR, EN, ES, ZH)
-4. Integrate social media API for displaying followers count
-5. Enhance SEO meta tags for improved search engine rankings
+Production build:
 
-### Design and Layout Changes
+```bash
+npm run build
+```
 
-1. Create a new design system documentation page
+## Content Map
+
+- Homepage and shared copy: `app/lib/translations.ts`
+- Project summaries: `app/lib/projects-data.ts`
+- Blog posts: `app/[locale]/blog/posts/*.mdx`
+- Service notes: `app/[locale]/services/offers/*.mdx`
+- Localized path handling: `proxy.ts` and `app/lib/url-translations.ts`

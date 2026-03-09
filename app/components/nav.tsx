@@ -13,8 +13,8 @@ const navItems: {
   external?: boolean;
 }[] = [
   { pathKey: 'home', translationKey: 'home' },
-  { pathKey: 'services', translationKey: 'services' },
-  { href: 'https://www.toukan.dev', translationKey: 'toukan', external: true },
+  { pathKey: 'now', translationKey: 'now' },
+  { pathKey: 'blog', translationKey: 'blog' },
   { pathKey: 'contact', translationKey: 'contact' },
 ];
 

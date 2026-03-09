@@ -1,10 +1,12 @@
-import { notFound } from 'next/navigation';
-import { getPathKeyFromLocalizedPath } from 'app/lib/url-translations';
+import { notFound, redirect } from 'next/navigation';
+import { getPathKeyFromLocalizedPath, urlTranslations } from 'app/lib/url-translations';
 import ServicesPage from '../services/page';
-import ProjectsPage from '../projects/page';
-import BlogPage from '../blog/page';
+import WritingsPage from '../writings/page';
+import WritingPage from '../writings/[slug]/page';
+import NowPage from '../now/page';
 import PGPPage from '../pgp/page';
 import ContactPage from '../contact/page';
+import { buildLocalizedUrl, type Locale } from 'app/lib/url-translations';
 
 interface PageProps {
   params: Promise<{
@@ -35,17 +37,24 @@ export default async function DynamicPage({ params }: PageProps) {
       
     case 'projects':
       if (slug.length === 1) {
-        return <ProjectsPage params={Promise.resolve({ locale })} />;
+        redirect(buildLocalizedUrl(locale as Locale, 'services'));
       }
       break;
       
     case 'blog':
       if (slug.length === 1) {
-        return <BlogPage params={Promise.resolve({ locale })} />;
+        return <WritingsPage params={Promise.resolve({ locale })} />;
       }
-      // Handle blog post pages
+      if (slug.length === 2) {
+        return <WritingPage params={Promise.resolve({ locale, slug: slug[1] })} />;
+      }
       break;
-      
+    
+    case 'now':
+      if (slug.length === 1) {
+        return <NowPage params={Promise.resolve({ locale })} />;
+      }
+      break;
       
     case 'contact':
       if (slug.length === 1) {
@@ -65,9 +74,15 @@ export default async function DynamicPage({ params }: PageProps) {
 
 // Generate static params for all locale/path combinations
 export function generateStaticParams() {
-  const locales = ['en', 'es', 'fr', 'zh'];
-  const paths = ['services', 'servicios', 'projects', 'proyectos', 'projets', 'xiangmu', 'blog', 'boke', 'contact', 'contacto', 'lianxi', 'fuwu'];
-  
+  const locales = Object.keys(urlTranslations);
+  const paths = Array.from(
+    new Set(
+      Object.values(urlTranslations).flatMap((translations) =>
+        Object.values(translations)
+      )
+    )
+  );
+
   const params: { locale: string; slug: string[] }[] = [];
   
   for (const locale of locales) {

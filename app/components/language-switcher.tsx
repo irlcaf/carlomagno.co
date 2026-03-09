@@ -7,7 +7,6 @@ import { getPathKeyFromLocalizedPath, buildLocalizedUrl, type Locale } from 'app
 const locales = [
   { code: 'en', name: 'English' },
   { code: 'es', name: 'Español' },
-  { code: 'fr', name: 'Français' },
   { code: 'zh', name: '中文' },
 ];
 

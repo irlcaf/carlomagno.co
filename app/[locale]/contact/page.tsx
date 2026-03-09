@@ -1,7 +1,9 @@
 import { getTranslations, type Locale } from 'app/lib/translations';
 import type { Metadata } from 'next';
-import Link from 'next/link';
+import { TrackedAnchor, TrackedLink } from 'app/components/analytics/tracked-link';
 import { buildLocalizedUrl } from 'app/lib/url-translations';
+import { pgp } from 'app/lib/pgp';
+import { baseUrl } from 'app/sitemap';
 
 export async function generateMetadata({
   params,
@@ -10,10 +12,29 @@ export async function generateMetadata({
 }): Promise<Metadata> {
   const { locale } = await params;
   const t = getTranslations(locale as Locale);
+  const canonicalPath = buildLocalizedUrl(locale as Locale, 'contact');
+  const canonicalUrl = `${baseUrl}${canonicalPath}`;
   return {
     title: t.contactTitle || 'Secure Contact',
     description:
       t.contactDescription || 'Get in touch through encrypted channels',
+    alternates: {
+      canonical: canonicalUrl,
+      languages: {
+        en: `${baseUrl}${buildLocalizedUrl('en', 'contact')}`,
+        es: `${baseUrl}${buildLocalizedUrl('es', 'contact')}`,
+        zh: `${baseUrl}${buildLocalizedUrl('zh', 'contact')}`,
+        'x-default': `${baseUrl}${buildLocalizedUrl('en', 'contact')}`,
+      },
+    },
+    openGraph: {
+      title: t.contactTitle || 'Secure Contact',
+      description:
+        t.contactDescription || 'Get in touch through encrypted channels',
+      url: canonicalUrl,
+      siteName: 'Carlomagno',
+      type: 'website',
+    },
   };
 }
 
@@ -44,16 +65,18 @@ export default async function ContactPage({
         </p>
 
         <div className="bg-neutral-50 dark:bg-neutral-950 p-4 rounded-lg">
-          <p className="font-mono text-lg mb-2">contact@carlomagno.xyz</p>
+          <p className="font-mono text-lg mb-2">{pgp.email}</p>
           <p className="text-xs text-neutral-500 dark:text-neutral-400 font-mono">
-            PGP: 9E59 7104 27B7 CBB3 3EA8 39F9 E8CC F0AA 54BE F63B
+            PGP: {pgp.fingerprint}
           </p>
         </div>
 
         <div className="flex flex-wrap gap-4">
-          <a
+          <TrackedAnchor
             href="/pgp.asc"
             download
+            eventName="pgp_download"
+            eventParams={{ site: 'carlomagno', locale, target: 'contact' }}
             className="inline-flex items-center px-4 py-2 border border-neutral-200 dark:border-neutral-800 rounded-lg hover:bg-neutral-100 dark:hover:bg-neutral-900 transition-colors"
           >
             <svg
@@ -70,10 +93,12 @@ export default async function ContactPage({
               />
             </svg>
             {t.downloadPgpKey || 'Download PGP Key'}
-          </a>
+          </TrackedAnchor>
 
-          <Link
+          <TrackedLink
             href={buildLocalizedUrl(locale as Locale, 'pgp')}
+            eventName="pgp_guide_open"
+            eventParams={{ site: 'carlomagno', locale, target: 'contact' }}
             className="inline-flex items-center px-4 py-2 text-neutral-600 dark:text-neutral-400 hover:text-neutral-900 dark:hover:text-neutral-100 transition-colors"
           >
             {t.quickPgpGuide || 'PGP Setup Guide'}
@@ -90,7 +115,7 @@ export default async function ContactPage({
                 d="M9 5l7 7-7 7"
               />
             </svg>
-          </Link>
+          </TrackedLink>
         </div>
       </div>
     </section>

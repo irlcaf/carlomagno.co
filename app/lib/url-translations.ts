@@ -3,7 +3,8 @@ export const urlTranslations = {
   en: {
     services: 'services',
     projects: 'projects',
-    blog: 'blog',
+    blog: 'writings',
+    now: 'now',
     toukan: 'toukan',
     contact: 'contact',
     pgp: 'pgp',
@@ -11,25 +12,19 @@ export const urlTranslations = {
   es: {
     services: 'servicios',
     projects: 'proyectos',
-    blog: 'blog',
+    blog: 'writings',
+    now: 'now',
     toukan: 'toukan',
     contact: 'contacto',
     pgp: 'pgp',
   },
-  fr: {
-    services: 'services',
-    projects: 'projets',
-    blog: 'blog',
-    toukan: 'toukan',
-    contact: 'contact',
-    pgp: 'pgp',
-  },
   zh: {
-    services: 'fuwu', // 服务
-    projects: 'xiangmu', // 项目
-    blog: 'boke', // 博客
+    services: 'fuwu',
+    projects: 'xiangmu',
+    blog: 'writings',
+    now: 'now',
     toukan: 'toukan',
-    contact: 'lianxi', // 联系
+    contact: 'lianxi',
     pgp: 'pgp',
   },
 } as const;
@@ -37,6 +32,11 @@ export const urlTranslations = {
 export type LocaleUrls = typeof urlTranslations;
 export type Locale = keyof LocaleUrls;
 export type PathKey = keyof LocaleUrls['en'];
+
+const legacyPathAliases: Record<string, PathKey> = {
+  blog: 'blog',
+  boke: 'blog',
+};
 
 // Get localized path for a given key
 export function getLocalizedPath(locale: Locale, pathKey: PathKey): string {
@@ -60,6 +60,10 @@ export function getPathKeyFromLocalizedPath(localizedPath: string): PathKey | nu
         return key as PathKey;
       }
     }
+  }
+
+  if (cleanPath in legacyPathAliases) {
+    return legacyPathAliases[cleanPath];
   }
   
   return null;

@@ -1,8 +1,13 @@
 import { NextResponse } from 'next/server';
 import type { NextRequest } from 'next/server';
-import { urlTranslations, getPathKeyFromLocalizedPath, getLocalizedPath, type Locale, type PathKey } from './app/lib/url-translations';
+import {
+  urlTranslations,
+  getPathKeyFromLocalizedPath,
+  getLocalizedPath,
+  type Locale,
+} from './app/lib/url-translations';
 
-const locales = ['en', 'es', 'fr', 'zh'];
+const locales = ['en', 'es', 'zh'];
 const defaultLocale = 'en';
 
 function getLocale(request: NextRequest): string {
@@ -27,36 +32,38 @@ function getLocale(request: NextRequest): string {
   return defaultLocale;
 }
 
-export function middleware(request: NextRequest) {
+export function proxy(request: NextRequest) {
   const pathname = request.nextUrl.pathname;
-  
-  // Check if path has locale
+
+  if (pathname !== '/' && /\.[^/]+$/.test(pathname)) {
+    return NextResponse.next();
+  }
+
   const pathnameLocale = locales.find(
     (locale) => pathname.startsWith(`/${locale}/`) || pathname === `/${locale}`
   );
 
-  // If no locale in path, redirect to default locale
   if (!pathnameLocale) {
     const locale = getLocale(request);
-    const newUrl = new URL(`/${locale}${pathname}`, request.url);
+    const localizedPath = pathname === '/' ? `/${locale}` : `/${locale}${pathname}`;
+    const newUrl = new URL(localizedPath, request.url);
     return NextResponse.redirect(newUrl);
   }
 
-  // Handle localized paths
   const pathSegments = pathname.split('/').filter(Boolean);
   if (pathSegments.length >= 2) {
     const locale = pathSegments[0] as Locale;
     const currentPath = pathSegments[1];
-    
-    // Check if this is an English path used with non-English locale
-    if (locale !== 'en') {
-      const pathKey = getPathKeyFromLocalizedPath(currentPath);
-      
-      // If it's a valid English path but wrong for the locale
-      if (pathKey && urlTranslations.en[pathKey] === currentPath && urlTranslations[locale][pathKey] !== currentPath) {
-        const localizedPath = getLocalizedPath(locale, pathKey);
+    const pathKey = getPathKeyFromLocalizedPath(currentPath);
+
+    if (pathKey) {
+      const localizedPath = getLocalizedPath(locale, pathKey);
+
+      if (localizedPath !== currentPath) {
         const remainingPath = pathSegments.slice(2).join('/');
-        const newPath = remainingPath ? `/${locale}/${localizedPath}/${remainingPath}` : `/${locale}/${localizedPath}`;
+        const newPath = remainingPath
+          ? `/${locale}/${localizedPath}/${remainingPath}`
+          : `/${locale}/${localizedPath}`;
         const newUrl = new URL(newPath, request.url);
         newUrl.search = request.nextUrl.search;
         return NextResponse.redirect(newUrl);
@@ -69,6 +76,6 @@ export function middleware(request: NextRequest) {
 
 export const config = {
   matcher: [
-    '/((?!api|_next/static|_next/image|favicon.ico|sitemap.xml|robots.txt).*)',
+    '/((?!api|_next/static|_next/image|favicon.ico|sitemap.xml|robots.txt|.*\\..*).*)',
   ],
 };

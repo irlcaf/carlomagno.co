@@ -1,12 +1,11 @@
 import { notFound } from 'next/navigation';
 import { CustomMDX } from 'app/components/mdx';
-import { getServices } from '../utils';
+import { formatDate, getBlogPosts } from 'app/[locale]/blog/utils';
 import { baseUrl } from 'app/sitemap';
-import { formatDate } from '../../blog/utils';
 import { buildLocalizedUrl, type Locale } from 'app/lib/url-translations';
 
 export function generateStaticParams() {
-  let posts = getServices();
+  const posts = getBlogPosts();
 
   return posts.map((post) => ({
     slug: post.slug,
@@ -15,19 +14,18 @@ export function generateStaticParams() {
 
 export async function generateMetadata({ params }: { params: Promise<{ locale: string; slug: string }> }) {
   const { locale, slug } = await params;
-  let post = getServices().find((post) => post.slug === slug);
+  const post = getBlogPosts().find((entry) => entry.slug === slug);
   if (!post) {
     return;
   }
 
-  let {
+  const {
     title,
-    icon: icon,
-    publishedAt,
+    publishedAt: publishedTime,
     summary: description,
     image,
   } = post.metadata;
-  const localizedUrl = `${baseUrl}${buildLocalizedUrl(locale as Locale, 'services', post.slug)}`;
+  const localizedUrl = `${baseUrl}${buildLocalizedUrl(locale as Locale, 'blog', post.slug)}`;
 
   return {
     title,
@@ -36,7 +34,7 @@ export async function generateMetadata({ params }: { params: Promise<{ locale: s
       title,
       description,
       type: 'article',
-      icon,
+      publishedTime,
       url: localizedUrl,
       images: image ? [{ url: image }] : undefined,
     },
@@ -52,9 +50,9 @@ export async function generateMetadata({ params }: { params: Promise<{ locale: s
   };
 }
 
-export default async function Service({ params }: { params: Promise<{ locale: string; slug: string }> }) {
+export default async function WritingPage({ params }: { params: Promise<{ locale: string; slug: string }> }) {
   const { locale, slug } = await params;
-  let post = getServices().find((post) => post.slug === slug);
+  const post = getBlogPosts().find((entry) => entry.slug === slug);
 
   if (!post) {
     notFound();
@@ -74,7 +72,7 @@ export default async function Service({ params }: { params: Promise<{ locale: st
             dateModified: post.metadata.publishedAt,
             description: post.metadata.summary,
             image: post.metadata.image ? `${baseUrl}${post.metadata.image}` : undefined,
-            url: `${baseUrl}${buildLocalizedUrl(locale as Locale, 'services', post.slug)}`,
+            url: `${baseUrl}${buildLocalizedUrl(locale as Locale, 'blog', post.slug)}`,
             author: {
               '@type': 'Person',
               name: 'Carlomagno',

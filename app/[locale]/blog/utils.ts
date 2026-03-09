@@ -5,7 +5,17 @@ type Metadata = {
   title: string
   publishedAt: string
   summary: string
+  kind: 'Essay' | 'Note'
   image?: string
+}
+
+function getReadingTimeMinutes(content: string) {
+  const wordCount = content
+    .replace(/[`*_#>\-\[\]\(\)!]/g, ' ')
+    .split(/\s+/)
+    .filter(Boolean).length
+
+  return Math.max(1, Math.ceil(wordCount / 200))
 }
 
 function parseFrontmatter(fileContent: string) {
@@ -20,7 +30,16 @@ function parseFrontmatter(fileContent: string) {
     let [key, ...valueArr] = line.split(': ')
     let value = valueArr.join(': ').trim()
     value = value.replace(/^['"](.*)['"]$/, '$1') // Remove quotes
-    metadata[key.trim() as keyof Metadata] = value
+    const field = key.trim() as keyof Metadata
+
+    if (field === 'kind') {
+      if (value === 'Essay' || value === 'Note') {
+        metadata.kind = value
+      }
+      return
+    }
+
+    metadata[field] = value
   })
 
   return { metadata: metadata as Metadata, content }
@@ -43,6 +62,7 @@ function getMDXData(dir) {
 
     return {
       metadata,
+      readingTimeMinutes: getReadingTimeMinutes(content),
       slug,
       content,
     }
