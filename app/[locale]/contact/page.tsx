@@ -45,9 +45,27 @@ export default async function ContactPage({
 }) {
   const { locale } = await params;
   const t = getTranslations(locale as Locale);
+  const canonicalUrl = `${baseUrl}${buildLocalizedUrl(locale as Locale, 'contact')}`;
 
   return (
     <section>
+      <script
+        type="application/ld+json"
+        suppressHydrationWarning
+        dangerouslySetInnerHTML={{
+          __html: JSON.stringify({
+            '@context': 'https://schema.org',
+            '@type': 'ContactPage',
+            name: t.contactTitle,
+            url: canonicalUrl,
+            mainEntity: {
+              '@type': 'Person',
+              name: 'Carlomagno',
+              email: pgp.email,
+            },
+          }),
+        }}
+      />
       <div className="mb-12">
         <h1 className="text-3xl font-bold tracking-tighter mb-4">
           {t.contactTitle || 'Secure Contact'}
@@ -65,7 +83,14 @@ export default async function ContactPage({
         </p>
 
         <div className="bg-neutral-50 dark:bg-neutral-950 p-4 rounded-lg">
-          <p className="font-mono text-lg mb-2">{pgp.email}</p>
+          <TrackedAnchor
+            href={`mailto:${pgp.email}`}
+            eventName="email_click"
+            eventParams={{ site: 'carlomagno', locale, target: 'contact' }}
+            className="font-mono text-lg mb-2 inline-flex text-neutral-900 hover:text-neutral-600 dark:text-neutral-100 dark:hover:text-neutral-300 transition-colors"
+          >
+            {pgp.email}
+          </TrackedAnchor>
           <p className="text-xs text-neutral-500 dark:text-neutral-400 font-mono">
             PGP: {pgp.fingerprint}
           </p>

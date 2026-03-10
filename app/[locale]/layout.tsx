@@ -16,6 +16,8 @@ export async function generateMetadata({ params }: { params: Promise<{ locale: s
   const { locale } = await params;
   const t = getTranslations(locale as Locale);
   const canonicalUrl = `${baseUrl}/${locale}`;
+  const googleVerification = process.env.NEXT_PUBLIC_GOOGLE_SITE_VERIFICATION;
+  const bingVerification = process.env.NEXT_PUBLIC_BING_SITE_VERIFICATION;
   
   return {
     metadataBase: new URL(baseUrl),
@@ -50,6 +52,14 @@ export async function generateMetadata({ params }: { params: Promise<{ locale: s
         'max-image-preview': 'large',
         'max-snippet': -1,
       },
+    },
+    verification: {
+      google: googleVerification || undefined,
+      other: bingVerification
+        ? {
+            'msvalidate.01': bingVerification,
+          }
+        : undefined,
     },
   };
 }

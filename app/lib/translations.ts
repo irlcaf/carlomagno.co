@@ -4,6 +4,9 @@ const translations = {
   en: {
     hero: "Carlomagno",
     bio: "This site is where I keep what I am working on now, recent interests, and a running map of the problems I keep coming back to.",
+    founderReference: "I run Toukan.dev, where the work centers on cybersecurity, secure software systems, and operational intelligence for critical industries in Central America.",
+    visitToukan: "See Toukan.dev",
+    toukanDescription: "Business site for cybersecurity, secure software systems, and operational intelligence in Central America.",
     latestWork: "Writings and working papers",
     viewServices: "Areas of Work",
     readBlog: "Read writings",
@@ -45,6 +48,9 @@ const translations = {
   es: {
     hero: "Carlomagno",
     bio: "Este sitio reúne en qué estoy trabajando ahora, qué me interesa últimamente y los problemas a los que vuelvo una y otra vez.",
+    founderReference: "Dirijo Toukan.dev, enfocado en ciberseguridad, software seguro e inteligencia operativa para industrias críticas en Centroamérica.",
+    visitToukan: "Ver Toukan.dev",
+    toukanDescription: "Sitio de Toukan.dev sobre ciberseguridad, software seguro e inteligencia operativa en Centroamérica.",
     latestWork: "Escritos y documentos de trabajo",
     viewServices: "Áreas de trabajo",
     readBlog: "Leer escritos",
@@ -86,6 +92,9 @@ const translations = {
   zh: {
     hero: "Carlomagno",
     bio: "这个网站记录我当前在做的事、近期关注的方向，以及那些我反复回到的问题。",
+    founderReference: "我在运营 Toukan.dev，工作重点是为中美洲关键行业提供网络安全、安全软件系统和运营情报。",
+    visitToukan: "了解 Toukan.dev",
+    toukanDescription: "面向中美洲的网络安全、安全软件系统与运营情报业务网站。",
     latestWork: "文章与工作论文",
     viewServices: "工作领域",
     readBlog: "阅读文章",
