@@ -30,3 +30,4 @@ npm run build
 - Blog posts: `app/[locale]/blog/posts/*.mdx`
 - Service notes: `app/[locale]/services/offers/*.mdx`
 - Localized path handling: `proxy.ts` and `app/lib/url-translations.ts`
+- SEO and analytics operating guide: `docs/seo-analytics-operations.md`
