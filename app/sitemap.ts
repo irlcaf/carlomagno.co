@@ -1,7 +1,7 @@
 import { getBlogPosts } from 'app/[locale]/blog/utils'
 import { buildLocalizedUrl, type Locale } from 'app/lib/url-translations'
 
-export const baseUrl = 'https://carlomagno.co'
+export const baseUrl = 'https://www.carlomagno.xyz'
 
 const locales: Locale[] = ['en', 'es', 'zh'];
 

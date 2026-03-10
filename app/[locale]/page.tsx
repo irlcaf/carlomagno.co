@@ -1,4 +1,4 @@
-import { TrackedAnchor, TrackedLink } from 'app/components/analytics/tracked-link';
+import { TrackedLink } from 'app/components/analytics/tracked-link';
 import { getNowData } from 'app/lib/now-data';
 import { getTranslations, type Locale } from 'app/lib/translations';
 import { buildLocalizedUrl } from 'app/lib/url-translations';
@@ -114,25 +114,6 @@ export default async function Page({ params }: { params: Promise<{ locale: strin
         <p className="mb-4 text-neutral-700 dark:text-neutral-300">
           {t.bio}
         </p>
-        <p className="text-neutral-700 dark:text-neutral-300">
-          {t.founderReference}
-        </p>
-      </div>
-
-      <div className="mb-10 rounded-lg border border-neutral-200 p-4 dark:border-neutral-800">
-        <p className="mb-2 text-sm text-neutral-600 dark:text-neutral-400">
-          {t.toukanDescription}
-        </p>
-        <TrackedAnchor
-          href="https://toukan.dev"
-          target="_blank"
-          rel="noreferrer"
-          eventName="outbound_click"
-          eventParams={{ site: 'carlomagno', locale, target: 'toukan_homepage' }}
-          className="inline-flex items-center text-sm font-medium text-neutral-900 transition-colors hover:text-neutral-600 dark:text-neutral-100 dark:hover:text-neutral-300"
-        >
-          {t.visitToukan}
-        </TrackedAnchor>
       </div>
 
       <div className="flex flex-wrap gap-4 mb-12">

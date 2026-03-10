@@ -27,6 +27,41 @@ function ArrowIcon() {
   );
 }
 
+function ExternalLinkIcon() {
+  return (
+    <svg
+      width="12"
+      height="12"
+      viewBox="0 0 12 12"
+      fill="none"
+      xmlns="http://www.w3.org/2000/svg"
+      aria-hidden="true"
+    >
+      <path
+        d="M7.25 1.25H10.75V4.75"
+        stroke="currentColor"
+        strokeWidth="1.1"
+        strokeLinecap="round"
+        strokeLinejoin="round"
+      />
+      <path
+        d="M10.25 1.75L5.5 6.5"
+        stroke="currentColor"
+        strokeWidth="1.1"
+        strokeLinecap="round"
+        strokeLinejoin="round"
+      />
+      <path
+        d="M9 6.75V9.25C9 9.66421 8.66421 10 8.25 10H2.75C2.33579 10 2 9.66421 2 9.25V3.75C2 3.33579 2.33579 3 2.75 3H5.25"
+        stroke="currentColor"
+        strokeWidth="1.1"
+        strokeLinecap="round"
+        strokeLinejoin="round"
+      />
+    </svg>
+  );
+}
+
 export default function Footer() {
   const pathname = usePathname();
   const locale = (pathname.split('/')[1] as Locale) || 'en';
@@ -34,6 +69,22 @@ export default function Footer() {
   return (
     <footer className="mb-16">
       <ul className="font-sm mt-8 flex flex-col space-x-0 space-y-2 text-neutral-600 md:flex-row md:space-x-4 md:space-y-0 dark:text-neutral-300">
+        <li>
+          <TrackedAnchor
+            className="flex items-center transition-all hover:text-neutral-800 dark:hover:text-neutral-100"
+            rel="noopener noreferrer"
+            target="_blank"
+            href="https://toukan.dev"
+            eventName="outbound_click"
+            eventParams={{ site: 'carlomagno', locale, target: 'toukan_footer' }}
+          >
+            <ArrowIcon />
+            <p className="ml-2 h-7">toukan.dev</p>
+            <span className="ml-1">
+              <ExternalLinkIcon />
+            </span>
+          </TrackedAnchor>
+        </li>
         <li>
           <TrackedLink
             className="flex items-center transition-all hover:text-neutral-800 dark:hover:text-neutral-100"

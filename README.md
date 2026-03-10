@@ -1,4 +1,4 @@
-# carlomagno.co
+# carlomagno.xyz
 
 Personal site and writing archive for Carlomagno Amaya.
 
